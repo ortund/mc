@@ -422,20 +422,20 @@ namespace MedCore.Tests.Claims
             sb.AppendLine("D|01|01|R39.1|Other difficulties with micturition|01|");
             sb.AppendLine("D|01|01|N41.9|Inflammatory disease of prostate, unspecified|02|");
             sb.AppendLine("D|01|01|N40|Hyperplasia of prostate|02|");
-            sb.AppendLine("Z|50370|50370|0|||||||50370||0|||0|50370||");
+            sb.AppendLine("Z|50370|50370|0|0|0|0|0|0|0|50370|0|0|0|0|0|50370|0|");
             sb.AppendLine("T|2|201709280000|201709280000||9150|34928|02|100|06|1949|01|||08|Cystoscopy: Hospital equipment|N||01||||||||24|");
             sb.AppendLine("DR|1234567|DR P.H. TEST |03|MP   1234567|01||||");
             sb.AppendLine("D|01|01|R39.1|Other difficulties with micturition|01|");
             sb.AppendLine("D|01|01|N41.9|Inflammatory disease of prostate, unspecified|02|");
             sb.AppendLine("D|01|01|N40|Hyperplasia of prostate|02|");
-            sb.AppendLine("Z|36700|36700|0|||||||36700||0|||0|36700||");
+            sb.AppendLine("Z|36700|36700|0|0|0|0|0|0|0|36700|0|0|0|0|0|36700|0|");
             sb.AppendLine("T|3|201709281401|201709281428||9150|34929|03|2700|03|0023|01|03||08|Anaesthetic Time|N||01||||||||24|");
             sb.AppendLine("DR|1234567|DR P.H. TEST |03|MP   1234567|01||||");
             sb.AppendLine("D|01|01|R39.1|Other difficulties with micturition|01|");
             sb.AppendLine("D|01|01|N41.9|Inflammatory disease of prostate, unspecified|02|");
             sb.AppendLine("D|01|01|N40|Hyperplasia of prostate|02|");
-            sb.AppendLine("Z|48930|48930|0|||||||48930||0|||0|48930||");
-            sb.AppendLine("F|136000|136000|136000||0||||0|136000||");
+            sb.AppendLine("Z|48930|48930|0|0|0|0|0|0|0|48930|0|0|0|0|0|48930|0|");
+            sb.AppendLine("F|136000|136000|136000|0|0|0|0||0|136000|0|");
             sb.AppendLine("E|9150|1|136000|");
 
             return sb.ToString();
