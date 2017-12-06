@@ -1,54 +1,56 @@
-﻿using MedCore.Claim;
-using Newtonsoft.Json;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
+using MedCore.Claim;
+using Newtonsoft.Json;
 
-namespace MedCore.Tests.Objects
+namespace MedCore.Tests.Claims
 {
     public class TestGp2Claim
     {
-        public Gp2Claim GetGp2()
+        private readonly string _claimsDirectory;
+
+        private const string _json = "Gp2.json";
+        private const string _fromClass = "Gp2.csv";
+        private const string _fromString = "Gp2action.csv";
+
+        public TestGp2Claim()
         {
-            return GenerateGp2();
+            _claimsDirectory = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "MedCore", "Claims");
+
+            if (!Directory.Exists(_claimsDirectory))
+                Directory.CreateDirectory(_claimsDirectory);
         }
 
         public string GetGp2Actual()
         {
-            return GenerateGp2Actual();
+            return GetExampleCSV();
         }
 
-        public void WriteGp2Json(Gp2Claim claim = null)
+        public void CreateFiles()
         {
-            if (claim == null)
-            {
-                claim = GetGp2();
-            }
-            var path = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "MedCore\\Claims\\Gp2.json");
-            if (!Directory.Exists(path))
-            {
-                Directory.CreateDirectory(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "MedCore\\Claims"));
-            }
+            var claim = GetExampleClaim();
+
+            var path = Path.Combine(_claimsDirectory, _json);
+
             using (var file = File.CreateText(path))
             {
                 var serializer = new JsonSerializer();
                 serializer.Serialize(file, claim);
 
-                Process.Start(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "MedCore\\Claims"));
+                Process.Start(_claimsDirectory);
             }
 
-            var txtPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "MedCore\\Claims\\Gp2.txt");
+            var txtPath = Path.Combine(_claimsDirectory, _fromClass);
             File.WriteAllText(txtPath, claim.GenerateClaim());
 
-            txtPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "MedCore\\Claims\\Gp2actual.txt");
-            File.WriteAllText(txtPath, GenerateGp2Actual());
+            txtPath = Path.Combine(_claimsDirectory, _fromString);
+            File.WriteAllText(txtPath, GetExampleCSV());
         }
-
-        private Gp2Claim GenerateGp2()
+        
+        private static Gp2Claim GetExampleClaim()
         {
             var header = new Header
             {
@@ -738,7 +740,7 @@ namespace MedCore.Tests.Objects
             };
         }
 
-        private string GenerateGp2Actual()
+        private static string GetExampleCSV()
         {
             var sb = new StringBuilder();
 

@@ -1,42 +1,38 @@
-﻿using MedCore.Tests.Objects;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 using NUnit.Framework;
 using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using MedCore.Tests.Claims;
 
 namespace MedCore.Tests
 {
     [TestFixture]
     public class AnaesthetistTest
     {
-        private Anaesthetist anaesthetistClaim;
+        private Anaesthetist _anaesthetistClaim;
 
-        private string anaesthetistFile = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "MedCore\\Claims\\Anaesthetist.json");
+        private string _anaesthetistFile = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "MedCore\\Claims\\Anaesthetist.json");
 
         [SetUp]
         public void Setup()
         {
-            if (!File.Exists(anaesthetistFile))
+            if (!File.Exists(_anaesthetistFile))
             {
                 var testClaim = new TestAnaesthetistClaim();
                 testClaim.WriteAnaesthetistJson();
             }
 
-            using (var file = File.OpenText(anaesthetistFile))
+            using (var file = File.OpenText(_anaesthetistFile))
             {
                 var serializer = new JsonSerializer();
-                anaesthetistClaim = (Anaesthetist)serializer.Deserialize(file, typeof(Anaesthetist));
+                _anaesthetistClaim = (Anaesthetist)serializer.Deserialize(file, typeof(Anaesthetist));
             }
         }
 
         [Test]
         public void GenerateAnaesthetistClaim()
         {
-            var output = anaesthetistClaim.GenerateClaim();
+            var output = _anaesthetistClaim.GenerateClaim();
 
             var testClaim = new TestAnaesthetistClaim();
             var actual = testClaim.GetAnaesthetistActual();
