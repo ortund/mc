@@ -51,6 +51,7 @@
     <Compile Include="BenefitCheck1.cs" />
     <Compile Include="ClaimBase.cs" />
     <Compile Include="Claim\EnumParser.cs" />
+    <Compile Include="Claim\ICreatesCSV.cs" />
     <Compile Include="Dentist.cs" />
     <Compile Include="Enums\ResponseResultCode.cs" />
     <Compile Include="ERA.cs" />

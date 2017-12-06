@@ -2,12 +2,12 @@
 
 namespace MedCore.Claim
 {
-    public class DispensedMedicine : EnumParser
+    public class DispensedMedicine : EnumParser, ICreatesCSV
     {
+        private const string _type = "C";
+
         public Treatment Treatment { get; set; }
         public ItemFinancialRecord FinancialRecord { get; set; }
-
-        private const string TYPE = "C";
         public bool MixtureIndicator { get; set; }
         public string MixtureIngredient { get; set; }
         public decimal MedicineCost { get; set; }
@@ -28,8 +28,8 @@ namespace MedCore.Claim
         public PriceBasis PriceBasis { get; set; }
         public string PMAMedicineItemLineNumber { get; set; }
         public ResubmissionReason ResubmissionReason { get; set; }
-
-        public override string ToString()
+        
+        public string GetCSV()
         {
             var mixtureIndicator = (MixtureIndicator) ? "Y" : "N";
             var medicineType = (Type == MedicineType.NotApplicable) ? string.Empty : GetStringFromEnumValue((int)Type);
@@ -40,7 +40,7 @@ namespace MedCore.Claim
             var priceBasis = GetStringFromEnumValue((int)PriceBasis);
             var resubmissionReason = (ResubmissionReason == ResubmissionReason.NotApplicable) ? string.Empty : GetStringFromEnumValue((int)ResubmissionReason);
 
-            return $"{TYPE}|{mixtureIndicator}|{MixtureIngredient}|{MedicineCost}|{medicineType}|{NappiCode}|{EanCode}|{Description}|{Quantity}|{Dosage}|{Length}|{LengthBasis}|{repeats}|{authorizedRepeats}|{OriginalPrescriptionNumber}|{daw}|{benefitType}|{AuthorizationNumber}|{priceBasis}|{PMAMedicineItemLineNumber}|{resubmissionReason}|";
+            return $"{_type}|{mixtureIndicator}|{MixtureIngredient}|{MedicineCost}|{medicineType}|{NappiCode}|{EanCode}|{Description}|{Quantity}|{Dosage}|{Length}|{LengthBasis}|{repeats}|{authorizedRepeats}|{OriginalPrescriptionNumber}|{daw}|{benefitType}|{AuthorizationNumber}|{priceBasis}|{PMAMedicineItemLineNumber}|{resubmissionReason}|";
         }
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace MedCore.Claim
 {
-    public class ClaimFinancialRecord
+    public class ClaimFinancialRecord : ICreatesCSV
     {
         private const string TYPE = "F";
         public decimal NetAmount { get; set; }
@@ -14,8 +14,8 @@
         public decimal PatientLiableAmount { get; set; }
         public decimal MedicalFundLiableAmount { get; set; }
         public decimal MemberReimbursementAmount { get; set; }
-
-        public override string ToString()
+        
+        public string GetCSV()
         {
             return $"{TYPE}|{NetAmount}|{GrossAmount}|{TotalClaimedAmount}|{ClaimDiscountAmount}|{ClaimDeductibleAmount}|{MMAPSurchargeAmount}|{CoPaymentAmount}|{ReceiptNumber}|{PatientLiableAmount}|{MedicalFundLiableAmount}|{MemberReimbursementAmount}|";
         }

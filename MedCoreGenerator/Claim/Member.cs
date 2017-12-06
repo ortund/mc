@@ -2,7 +2,7 @@
 
 namespace MedCore.Claim
 {
-    public class Member : EnumParser
+    public class Member : EnumParser, ICreatesCSV
     {
         private const string TYPE = "M";
         /// <summary>
@@ -90,8 +90,8 @@ namespace MedCore.Claim
         /// SwitchOn Destination Code for the Medical Scheme / Plan.
         /// </summary>
         public string SwitchOnDestinationCode { get; set; }
-
-        public override string ToString()
+        
+        public string GetCSV()
         {
             var title = (Title == MemberTitle.NotApplicable) ? string.Empty : Title.ToString().ToUpper();
             var cardSwipeIndicator = (CardSwipeIndicator) ? "Y" : "N";

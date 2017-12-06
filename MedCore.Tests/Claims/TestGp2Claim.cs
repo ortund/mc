@@ -13,8 +13,8 @@ namespace MedCore.Tests.Claims
         private readonly string _claimsDirectory;
 
         private const string _json = "Gp2.json";
-        private const string _fromClass = "Gp2.csv";
-        private const string _fromString = "Gp2action.csv";
+        private const string _fromClass = "Gp2.txt";
+        private const string _fromString = "Gp2actual.txt";
 
         public TestGp2Claim()
         {
@@ -23,12 +23,7 @@ namespace MedCore.Tests.Claims
             if (!Directory.Exists(_claimsDirectory))
                 Directory.CreateDirectory(_claimsDirectory);
         }
-
-        public string GetGp2Actual()
-        {
-            return GetExampleCSV();
-        }
-
+        
         public void CreateFiles()
         {
             var claim = GetExampleClaim();
@@ -42,12 +37,9 @@ namespace MedCore.Tests.Claims
 
                 Process.Start(_claimsDirectory);
             }
-
-            var txtPath = Path.Combine(_claimsDirectory, _fromClass);
-            File.WriteAllText(txtPath, claim.GenerateClaim());
-
-            txtPath = Path.Combine(_claimsDirectory, _fromString);
-            File.WriteAllText(txtPath, GetExampleCSV());
+            
+            File.WriteAllText(Path.Combine(_claimsDirectory, _fromClass), claim.GetCSV());
+            File.WriteAllText(Path.Combine(_claimsDirectory, _fromString), GetExampleCSV());
         }
         
         private static Gp2Claim GetExampleClaim()
@@ -740,7 +732,7 @@ namespace MedCore.Tests.Claims
             };
         }
 
-        private static string GetExampleCSV()
+        public static string GetExampleCSV()
         {
             var sb = new StringBuilder();
 

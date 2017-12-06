@@ -1,15 +1,16 @@
 ﻿namespace MedCore.Claim
 {
-    public class Footer
+    public class Footer : ICreatesCSV
     {
-        private const string TYPE = "E";
+        private const string _type = "E";
+
         public string TransmissionNumber { get; set; }
         public int NumberOfClaims { get; set; }
         public decimal ValueOfClaims { get; set; }
-
-        public override string ToString()
+        
+        public string GetCSV()
         {
-            return $"{TYPE}|{TransmissionNumber}|{NumberOfClaims}|{ValueOfClaims}|";
+            return $"{_type}|{TransmissionNumber}|{NumberOfClaims}|{ValueOfClaims}|";
         }
     }
 }

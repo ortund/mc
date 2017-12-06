@@ -4,14 +4,15 @@ using System.Collections.Generic;
 
 namespace MedCore.Claim
 {
-    public class Treatment : EnumParser
+    public class Treatment : EnumParser, ICreatesCSV, IComparable, IComparable<Treatment>
     {
         public Doctor Doctor { get; set; }
         public List<DoctorDiagnosis> Diagnoses { get; set; }
         public List<Tooth> Teeth { get; set; }
         public TreatmentFinancialRecord FinancialRecord { get; set; }
 
-        private const string TYPE = "T";
+        private const string _type = "T";
+
         public string Number { get; set; }
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
@@ -40,8 +41,8 @@ namespace MedCore.Claim
         public string PHISCPlaceOfService { get; set; }
         public bool IsPmbConditionEmpty { get; set; }
         public bool IncludeTimeOnDates { get; set; }
-
-        public override string ToString()
+        
+        public string GetCSV()
         {
             // ToString any properties who's types are not already strings
             var startDate = (IncludeTimeOnDates) ? StartDate.ToString("yyyyMMddHHmm") : StartDate.ToString("yyyyMMdd");
@@ -64,7 +65,70 @@ namespace MedCore.Claim
             var hospitalTariff = (HospitalTariff == HospitalTariffType.NotApplicable) ? string.Empty : GetStringFromEnumValue((int)HospitalTariff);
             var resubmissionReason = (ResubmissionReason == ResubmissionReason.NotApplicable) ? string.Empty : GetStringFromEnumValue((int)ResubmissionReason);
 
-            return $"{TYPE}|{Number}|{startDate}|{endDate}|{AuthorizationNumber}|{InvoiceNumber}|{ClaimLineNumber}|{type}|{UnitQuantity}|{unitType}|{ProcedureModifierCode}|{tariffCode}|{modifierType}|{NAPPICode}|{serviceTariff}|{Description}|{pmbCondition}|{scriptWrittenDate}|{benefitType}|{hospitalTariff}|{LabPCNS}|{LabReferenceNumber}|{LabName}|{resubmissionReason}|{ClaimNumber}|{claimDate}|{PHISCPlaceOfService}|";
+            return $"{_type}|{Number}|{startDate}|{endDate}|{AuthorizationNumber}|{InvoiceNumber}|{ClaimLineNumber}|{type}|{UnitQuantity}|{unitType}|{ProcedureModifierCode}|{tariffCode}|{modifierType}|{NAPPICode}|{serviceTariff}|{Description}|{pmbCondition}|{scriptWrittenDate}|{benefitType}|{hospitalTariff}|{LabPCNS}|{LabReferenceNumber}|{LabName}|{resubmissionReason}|{ClaimNumber}|{claimDate}|{PHISCPlaceOfService}|";
         }
+
+        public bool Equals(Treatment other)
+        {
+            if (ReferenceEquals(null, other)) return false;
+            if (ReferenceEquals(this, other)) return true;
+            return other.Number.Equals(Number);
+        }
+
+        public override bool Equals(object obj)
+        {
+            if (ReferenceEquals(null, obj)) return false;
+            if (ReferenceEquals(this, obj)) return true;
+            return obj.GetType() == typeof(Treatment) && Equals((Treatment)obj);
+        }
+
+        public override int GetHashCode()
+        {
+            unchecked
+            {
+                return Number.GetHashCode();
+            }
+        }
+        
+        public static bool operator ==(Treatment x, Treatment y)
+        {
+            var xIsNull = ReferenceEquals(null, x);
+            var yIsNull = ReferenceEquals(null, y);
+
+            if (xIsNull ^ yIsNull) return false; // One is null and one isn't (XOR)
+            return xIsNull || x.Equals(y);
+        }
+
+        public static bool operator !=(Treatment x, Treatment y)
+        {
+            return !(x == y);
+        }
+
+        public int CompareTo(object obj)
+        {
+            if (obj == null)
+            {
+                return 1;
+            }
+            if (!(obj is Treatment))
+            {
+                throw new ArgumentException("Argument must be money");
+            }
+            return CompareTo((Treatment)obj);
+        }
+
+        public int CompareTo(Treatment other)
+        {
+            if (int.Parse(Number) < int.Parse(other.Number))
+                return -1;
+
+            return int.Parse(Number) > int.Parse(other.Number) ? 1 : 0;
+        }
+
+        public override string ToString()
+        {
+            return Number;
+        }
+
     }
 }

@@ -2,13 +2,13 @@
 
 namespace MedCore.Claim
 {
-    public class Modifier : EnumParser
+    public class Modifier : EnumParser, ICreatesCSV
     {
         public const string TYPE = "MD";
         public string Code { get; set; }
         public TreatmentModifierType Type { get; set; }
 
-        public override string ToString()
+        public string GetCSV()
         {
             var type = GetStringFromEnumValue((int)Type);
             return $"{TYPE}|{Code}|{type}|";

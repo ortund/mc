@@ -2,7 +2,7 @@
 
 namespace MedCore.Claim
 {
-    public class Tooth : EnumParser
+    public class Tooth : EnumParser, ICreatesCSV
     {
         private const string TYPE = "N";
 
@@ -10,7 +10,7 @@ namespace MedCore.Claim
         public ToothSurface Surface { get; set; }
         public string SuperNumaryToothIndicator { get; set; }
 
-        public override string ToString()
+        public string GetCSV()
         {
             var tootSurface = GetStringFromEnumValue((int)Surface);
             return $"{TYPE}|{Number}|{tootSurface}|{SuperNumaryToothIndicator}|";
