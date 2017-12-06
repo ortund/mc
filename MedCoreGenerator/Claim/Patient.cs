@@ -3,7 +3,7 @@ using System;
 
 namespace MedCore.Claim
 {
-    public class Patient : EnumParser
+    public class Patient : EnumParser, ICreatesCSV
     {
         private const string TYPE = "P";
         public string DependantCode { get; set; }
@@ -28,14 +28,14 @@ namespace MedCore.Claim
         public decimal Height { get; set; }
         public decimal Weight { get; set; }
         public string PMAClaimReferenceNumber { get; set; }
-
-        public override string ToString()
+        
+        public string GetCSV()
         {
             var dob = DOB.ToString("yyyyMMdd");
             var recallDate = (RecallDate == DateTime.MinValue) ? string.Empty : RecallDate.ToString("yyyyMMddHHmm");
             var injuryDate = (InjuryDate == DateTime.MinValue) ? string.Empty : InjuryDate.ToString("yyyyMMdd");
 
-            var gender = Gender.ToString().Substring(0,1);
+            var gender = Gender.ToString().Substring(0, 1);
             var patientRelationCode = GetStringFromEnumValue((int)PatientRelationCode);
             var patientType = (PatientType == PatientType.NotApplicable) ? string.Empty : GetStringFromEnumValue((int)PatientType);
             var height = (Height > 0) ? Height.ToString() : string.Empty;

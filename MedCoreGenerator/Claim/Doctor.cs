@@ -2,7 +2,7 @@
 
 namespace MedCore.Claim
 {
-    public class Doctor : EnumParser
+    public class Doctor : EnumParser, ICreatesCSV
     {
         public const string TYPE = "DR";
 
@@ -15,8 +15,8 @@ namespace MedCore.Claim
         public bool DesignatedProvider { get; set; }
         public string TrackingNumber { get; set; }
         public bool DesignatedProviderOmitted { get; set; }
-
-        public override string ToString()
+        
+        public string GetCSV()
         {
             var doctorType = GetStringFromEnumValue((int)DoctorType);
             var cmsType = GetStringFromEnumValue((int)CMSType);

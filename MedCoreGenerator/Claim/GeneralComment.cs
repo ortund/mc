@@ -1,13 +1,14 @@
 ﻿namespace MedCore.Claim
 {
-    public class GeneralComment
+    public class GeneralComment: ICreatesCSV
     {
-        private const string TYPE = "G";
+        private const string _type = "G";
+
         public string Comments { get; set; }
 
-        public override string ToString()
+        public string GetCSV()
         {
-            return $"{TYPE}|{Comments}|";
+            return $"{_type}|{Comments}|";
         }
     }
 }

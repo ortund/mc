@@ -3,13 +3,13 @@ using System;
 
 namespace MedCore.Claim
 {
-    public class HospitalDischarge : EnumParser
+    public class HospitalDischarge : EnumParser, ICreatesCSV
     {
         private const string TYPE = "HD";
         public DateTime DischargeDate { get; set; }
         public HospitalDischargeCode DischargeCode { get; set; }
 
-        public override string ToString()
+        public string GetCSV()
         {
             var dischargeDate = DischargeDate.ToString("yyyyMMddHHmm");
             var dischargeCode = GetStringFromEnumValue((int)DischargeCode);

@@ -3,7 +3,7 @@
     /// <summary>
     /// Represents a claim header record.
     /// </summary>
-    public class Header
+    public class Header : ICreatesCSV
     {
         private const string TYPE = "H";
         /// <summary>
@@ -30,16 +30,12 @@
         /// </summary>
         public bool ERAVersionOmitted { get; set; }
 
-        public override string ToString()
+        public string GetCSV()
         {
             if (!ERAVersionOmitted)
-            {
                 return $"{TYPE}|{TransmissionNumber}|{Version}|{PackageInfo}|{ERAVersion}|";
-            }
-            else
-            {
-                return $"{TYPE}|{TransmissionNumber}|{Version}|{PackageInfo}|";
-            }
+
+            return $"{TYPE}|{TransmissionNumber}|{Version}|{PackageInfo}|";
         }
     }
 }

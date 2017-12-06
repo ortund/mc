@@ -2,7 +2,7 @@
 
 namespace MedCore.Claim
 {
-    public class OpticalRecord
+    public class OpticalRecord : ICreatesCSV
     {
         private const string TYPE = "OP";
         public string ItemNumber { get; set; }
@@ -20,7 +20,7 @@ namespace MedCore.Claim
         public string TintDensity { get; set; }
         public string Description { get; set; }
 
-        public override string ToString()
+        public string GetCSV()
         {
             return $"{TYPE}|{ItemNumber}|{FrameSupplierName}|{FrameModelName}|{FrameModelNumber}|{FrameSize}|{Eye}|{LensPrescriptionSphere}|{LensPrescriptionCylinder}|{LensPrescriptionAxis}|{LensPrescriptionReadingAdditions}|{LensPrescriptionPrism}|{LensPrescriptionBase}|{TintDensity}|{Description}|";
         }

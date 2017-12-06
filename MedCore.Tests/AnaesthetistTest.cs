@@ -11,7 +11,7 @@ namespace MedCore.Tests
     {
         private Anaesthetist _anaesthetistClaim;
 
-        private string _anaesthetistFile = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "MedCore\\Claims\\Anaesthetist.json");
+        private readonly string _anaesthetistFile = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "MedCore\\Claims\\Anaesthetist.json");
 
         [SetUp]
         public void Setup()
@@ -32,7 +32,7 @@ namespace MedCore.Tests
         [Test]
         public void GenerateAnaesthetistClaim()
         {
-            var output = _anaesthetistClaim.GenerateClaim();
+            var output = _anaesthetistClaim.GetCSV();
 
             var testClaim = new TestAnaesthetistClaim();
             var actual = testClaim.GetAnaesthetistActual();

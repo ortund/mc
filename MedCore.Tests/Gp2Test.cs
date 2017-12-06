@@ -22,6 +22,7 @@ namespace MedCore.Tests
                 var testClaim = new TestGp2Claim();
                 testClaim.CreateFiles();
             }
+
             using (var file = File.OpenText(_gp2File))
             {
                 var serializer = new JsonSerializer();
@@ -32,11 +33,10 @@ namespace MedCore.Tests
         [Test]
         public void GenerateGp2Claim()
         {
-            var output = _gp2Claim.GenerateClaim();
+            var output = _gp2Claim.GetCSV();
             File.WriteAllText(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "MedCore\\Claims\\Gp2Output.txt"), output);
-
-            var testClaim = new TestGp2Claim();
-            var actual = testClaim.GetGp2Actual();
+            
+            var actual = TestGp2Claim.GetExampleCSV();
 
             Assert.That(output, Is.EqualTo(actual));
         }

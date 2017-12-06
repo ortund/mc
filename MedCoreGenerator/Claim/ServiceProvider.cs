@@ -5,9 +5,9 @@ namespace MedCore.Claim
     /// <summary>
     /// Record showing information regarding the Service Provider who is submitting the claim.
     /// </summary>
-    public class ServiceProvider
+    public class ServiceProvider : ICreatesCSV
     {
-        private const string TYPE = "S";
+        private const string _type = "S";
         /// <summary>
         /// DateTime stamp for when the file is created. Will be formatted to YYYYMMDDhhmm.
         /// </summary>
@@ -28,10 +28,10 @@ namespace MedCore.Claim
         /// The VAT registration number of the Service Provider / Billing Practice.
         /// </summary>
         public string VATNumber { get; set; }
-
-        public override string ToString()
+        
+        public string GetCSV()
         {
-            return $"{TYPE}|{DateCreated.ToString("yyyyMMddHHmm")}|{PracticePCNSNumber}|{BillingPracticeName}|{DatasetIdentifier}|{VATNumber}|";
+            return $"{_type}|{DateCreated:yyyyMMddHHmm}|{PracticePCNSNumber}|{BillingPracticeName}|{DatasetIdentifier}|{VATNumber}|";
         }
     }
 }
