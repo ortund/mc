@@ -1,14 +1,12 @@
-﻿using MedCore.Claim;
-using Newtonsoft.Json;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
+using MedCore.Claim;
+using Newtonsoft.Json;
 
-namespace MedCore.Tests.Objects
+namespace MedCore.Tests.Claims
 {
     public class TestGpClaim
     {

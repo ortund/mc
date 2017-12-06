@@ -14,3 +14,13 @@ K:\Work things\MedCoreGenerator\MedCoreGenerator\obj\Debug\MedCoreGenerator.dll
 K:\Work things\MedCoreGenerator\MedCoreGenerator\obj\Debug\MedCoreGenerator.pdb
 D:\Work things\MedCoreGenerator\MedCoreGenerator\bin\Debug\Newtonsoft.Json.dll
 D:\Work things\MedCoreGenerator\MedCoreGenerator\bin\Debug\Newtonsoft.Json.xml
+C:\Users\shaw_d\Documents\GitHub\mc\MedCoreGenerator\bin\Debug\MedCoreGenerator.dll
+C:\Users\shaw_d\Documents\GitHub\mc\MedCoreGenerator\bin\Debug\MedCoreGenerator.pdb
+C:\Users\shaw_d\Documents\GitHub\mc\MedCoreGenerator\bin\Debug\AutoMapper.dll
+C:\Users\shaw_d\Documents\GitHub\mc\MedCoreGenerator\bin\Debug\Newtonsoft.Json.dll
+C:\Users\shaw_d\Documents\GitHub\mc\MedCoreGenerator\bin\Debug\AutoMapper.xml
+C:\Users\shaw_d\Documents\GitHub\mc\MedCoreGenerator\bin\Debug\Newtonsoft.Json.xml
+C:\Users\shaw_d\Documents\GitHub\mc\MedCoreGenerator\obj\Debug\MedCore.csprojResolveAssemblyReference.cache
+C:\Users\shaw_d\Documents\GitHub\mc\MedCoreGenerator\obj\Debug\MedCore.csproj.CoreCompileInputs.cache
+C:\Users\shaw_d\Documents\GitHub\mc\MedCoreGenerator\obj\Debug\MedCoreGenerator.dll
+C:\Users\shaw_d\Documents\GitHub\mc\MedCoreGenerator\obj\Debug\MedCoreGenerator.pdb

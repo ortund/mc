@@ -1,10 +1,5 @@
-﻿using MedCore.Claim;
-using MedCore.Era;
-using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using MedCore.Era;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace MedCore
 {
