@@ -1,0 +1,4 @@
+D:\Work things\MedCoreGenerator\.vs\MedCoreGenerator\10120\b\MedCoreGenerator\bin\Release\MedCoreGenerator.dll
+D:\Work things\MedCoreGenerator\.vs\MedCoreGenerator\10120\b\MedCoreGenerator\bin\Release\MedCoreGenerator.pdb
+D:\Work things\MedCoreGenerator\.vs\MedCoreGenerator\10120\i\MedCore\Release\MedCoreGenerator.dll
+D:\Work things\MedCoreGenerator\.vs\MedCoreGenerator\10120\i\MedCore\Release\MedCoreGenerator.pdb

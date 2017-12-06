@@ -1,0 +1,26 @@
+H|9150|119|TEST:21100|
+S|201710031727|1234567|DR P.H. TEST  SPECIALIST ANAESTHETIS|{0E028DC11706447B8DA552205A99CDD7}|4280204720|
+M|1234567891012||FC|BOND|JAMES C|12345678910|N|H007210||||||MARINE||POLMED||03||MHPO0001|
+P|00|BOND|FC|JAMES C|12345678|M|01|1234567891012||||||||77711087|77711087|H007210|01|||9150|
+DR|1234567|Dr TESTS|05|L    0000000|01||||
+T|1|201709280000|201709280000||9150|34927|02|100|06|0151|01|||08|Preanaesthetic assessment: Preanaesthetic assess|N||01||||||||24|
+DR|1234567|DR P.H. TEST |03|MP   1234567|01||||
+D|01|01|R39.1|Other difficulties with micturition|01|
+D|01|01|N41.9|Inflammatory disease of prostate, unspecified|02|
+D|01|01|N40|Hyperplasia of prostate|02|
+Z|50370|50370|0|||||||50370||0|||0|50370||
+T|2|201709280000|201709280000||9150|34928|02|100|06|1949|01|||08|Cystoscopy: Hospital equipment|N||01||||||||24|
+DR|1234567|DR P.H. TEST |03|MP   1234567|01||||
+D|01|01|R39.1|Other difficulties with micturition|01|
+D|01|01|N41.9|Inflammatory disease of prostate, unspecified|02|
+D|01|01|N40|Hyperplasia of prostate|02|
+Z|36700|36700|0|||||||36700||0|||0|36700||
+T|3|201709281401|201709281428||9150|34929|03|2700|03|0023|01|03||08|Anaesthetic Time|N||01||||||||24|
+DR|1234567|DR P.H. TEST |03|MP   1234567|01||||
+D|01|01|R39.1|Other difficulties with micturition|01|
+D|01|01|N41.9|Inflammatory disease of prostate, unspecified|02|
+D|01|01|N40|Hyperplasia of prostate|02|
+Z|48930|48930|0|||||||48930||0|||0|48930||
+F|136000|136000|136000||0||||0|136000||
+E|9150|1|136000|
+

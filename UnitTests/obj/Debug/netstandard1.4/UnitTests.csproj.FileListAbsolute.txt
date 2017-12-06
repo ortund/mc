@@ -1,0 +1,4 @@
+D:\Work things\MedCoreGenerator\UnitTests\bin\Debug\netstandard1.4\UnitTests.deps.json
+D:\Work things\MedCoreGenerator\UnitTests\bin\Debug\netstandard1.4\UnitTests.dll
+D:\Work things\MedCoreGenerator\UnitTests\obj\Debug\netstandard1.4\UnitTests.csprojResolveAssemblyReference.cache
+D:\Work things\MedCoreGenerator\UnitTests\obj\Debug\netstandard1.4\UnitTests.AssemblyInfo.cs

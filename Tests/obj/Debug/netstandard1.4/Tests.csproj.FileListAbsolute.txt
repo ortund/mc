@@ -1,0 +1,9 @@
+D:\Work things\MedCoreGenerator\Tests\bin\Debug\netstandard1.4\Tests.deps.json
+D:\Work things\MedCoreGenerator\Tests\bin\Debug\netstandard1.4\MedCoreGenerator.dll
+D:\Work things\MedCoreGenerator\Tests\obj\Debug\netstandard1.4\Tests.AssemblyInfo.cs
+D:\Work things\MedCoreGenerator\Tests\bin\Debug\netstandard1.4\Tests.dll
+D:\Work things\MedCoreGenerator\Tests\bin\Debug\netstandard1.4\Tests.pdb
+D:\Work things\MedCoreGenerator\Tests\bin\Debug\netstandard1.4\MedCoreGenerator.pdb
+D:\Work things\MedCoreGenerator\Tests\obj\Debug\netstandard1.4\Tests.csprojResolveAssemblyReference.cache
+D:\Work things\MedCoreGenerator\Tests\obj\Debug\netstandard1.4\Tests.dll
+D:\Work things\MedCoreGenerator\Tests\obj\Debug\netstandard1.4\Tests.pdb

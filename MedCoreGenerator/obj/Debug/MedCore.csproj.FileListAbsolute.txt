@@ -1,0 +1,16 @@
+D:\Work things\MedCoreGenerator\MedCoreGenerator\bin\Debug\MedCoreGenerator.dll
+D:\Work things\MedCoreGenerator\MedCoreGenerator\bin\Debug\MedCoreGenerator.pdb
+D:\Work things\MedCoreGenerator\MedCoreGenerator\bin\Debug\AutoMapper.dll
+D:\Work things\MedCoreGenerator\MedCoreGenerator\bin\Debug\AutoMapper.xml
+D:\Work things\MedCoreGenerator\MedCoreGenerator\obj\Debug\MedCore.csprojResolveAssemblyReference.cache
+D:\Work things\MedCoreGenerator\MedCoreGenerator\obj\Debug\MedCoreGenerator.dll
+D:\Work things\MedCoreGenerator\MedCoreGenerator\obj\Debug\MedCoreGenerator.pdb
+K:\Work things\MedCoreGenerator\MedCoreGenerator\bin\Debug\MedCoreGenerator.dll
+K:\Work things\MedCoreGenerator\MedCoreGenerator\bin\Debug\MedCoreGenerator.pdb
+K:\Work things\MedCoreGenerator\MedCoreGenerator\bin\Debug\AutoMapper.dll
+K:\Work things\MedCoreGenerator\MedCoreGenerator\bin\Debug\AutoMapper.xml
+K:\Work things\MedCoreGenerator\MedCoreGenerator\obj\Debug\MedCore.csprojResolveAssemblyReference.cache
+K:\Work things\MedCoreGenerator\MedCoreGenerator\obj\Debug\MedCoreGenerator.dll
+K:\Work things\MedCoreGenerator\MedCoreGenerator\obj\Debug\MedCoreGenerator.pdb
+D:\Work things\MedCoreGenerator\MedCoreGenerator\bin\Debug\Newtonsoft.Json.dll
+D:\Work things\MedCoreGenerator\MedCoreGenerator\bin\Debug\Newtonsoft.Json.xml

@@ -1,0 +1,131 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{648A8866-BE46-4616-B49B-7AE48BAABF3E}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MedCore</RootNamespace>
+    <AssemblyName>MedCoreGenerator</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AutoMapper, Version=6.2.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.6.2.1\lib\net45\AutoMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Anaesthetist.cs" />
+    <Compile Include="BenefitCheck1.cs" />
+    <Compile Include="ClaimBase.cs" />
+    <Compile Include="Claim\EnumParser.cs" />
+    <Compile Include="Dentist.cs" />
+    <Compile Include="Enums\ResponseResultCode.cs" />
+    <Compile Include="ERA.cs" />
+    <Compile Include="Era\AdditionalFinancialRecord.cs" />
+    <Compile Include="Era\BankDeposit.cs" />
+    <Compile Include="Era\ClaimItem.cs" />
+    <Compile Include="Era\Disclaimer.cs" />
+    <Compile Include="Era\FinancialTotals.cs" />
+    <Compile Include="Era\GeneralComment.cs" />
+    <Compile Include="Era\Header.cs" />
+    <Compile Include="Era\ItemAllocation.cs" />
+    <Compile Include="Era\ItemFinancialRecord.cs" />
+    <Compile Include="Era\Journal.cs" />
+    <Compile Include="Era\Member.cs" />
+    <Compile Include="Era\Patient.cs" />
+    <Compile Include="Era\PatientFinancialRecord.cs" />
+    <Compile Include="Era\Response.cs" />
+    <Compile Include="Era\ServiceProvider.cs" />
+    <Compile Include="Gp2Claim.cs" />
+    <Compile Include="GpClaim.cs" />
+    <Compile Include="Claim\Attachment.cs" />
+    <Compile Include="Claim\ClaimFinancialRecord.cs" />
+    <Compile Include="Claim\DispensedMedicine.cs" />
+    <Compile Include="Claim\Doctor.cs" />
+    <Compile Include="Claim\Footer.cs" />
+    <Compile Include="Claim\GeneralComment.cs" />
+    <Compile Include="Claim\Header.cs" />
+    <Compile Include="Claim\ItemFinancialRecord.cs" />
+    <Compile Include="Claim\Laboratory.cs" />
+    <Compile Include="Claim\Member.cs" />
+    <Compile Include="Claim\Modifier.cs" />
+    <Compile Include="Claim\OpticalRecord.cs" />
+    <Compile Include="Claim\Patient.cs" />
+    <Compile Include="Claim\Procedure.cs" />
+    <Compile Include="Claim\ServiceProvider.cs" />
+    <Compile Include="Claim\HospitalAdmission.cs" />
+    <Compile Include="Claim\DoctorDiagnosis.cs" />
+    <Compile Include="Claim\Tooth.cs" />
+    <Compile Include="Claim\TreatmentFinancialRecord.cs" />
+    <Compile Include="Enums\BenefitType.cs" />
+    <Compile Include="Enums\Daw.cs" />
+    <Compile Include="Enums\Eye.cs" />
+    <Compile Include="Enums\HospitalTariffType.cs" />
+    <Compile Include="Enums\MedicineType.cs" />
+    <Compile Include="Enums\PriceBasis.cs" />
+    <Compile Include="Enums\ProcedureCodeType.cs" />
+    <Compile Include="Enums\ResubmissionReason.cs" />
+    <Compile Include="Enums\ServiceTariff.cs" />
+    <Compile Include="Enums\TariffCodeType.cs" />
+    <Compile Include="Enums\ToothSurface.cs" />
+    <Compile Include="Enums\TreatmentModifierType.cs" />
+    <Compile Include="Enums\TreatmentType.cs" />
+    <Compile Include="Enums\Claimant.cs" />
+    <Compile Include="Enums\DiagnosisCodeType.cs" />
+    <Compile Include="Enums\DoctorType.cs" />
+    <Compile Include="Enums\ExtendedDiagnosis.cs" />
+    <Compile Include="Enums\Gender.cs" />
+    <Compile Include="Enums\HospitalDischargeCode.cs" />
+    <Compile Include="Enums\MemberTitle.cs" />
+    <Compile Include="Enums\PatientRelationCode.cs" />
+    <Compile Include="Enums\PatientType.cs" />
+    <Compile Include="Enums\SchemeTypes.cs" />
+    <Compile Include="Enums\ServiceType.cs" />
+    <Compile Include="Enums\UnitType.cs" />
+    <Compile Include="MSV.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Claim\HospitalDischarge.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Claim\Treatment.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
