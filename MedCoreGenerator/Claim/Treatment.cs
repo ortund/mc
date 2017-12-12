@@ -15,7 +15,7 @@ namespace MedCore.Claim
 
         public string Number { get; set; }
         public DateTime StartDate { get; set; }
-        public DateTime EndDate { get; set; }
+        public DateTime? EndDate { get; set; }
         public string AuthorizationNumber { get; set; }
         public string InvoiceNumber { get; set; }
         public string ClaimLineNumber { get; set; }
@@ -37,28 +37,44 @@ namespace MedCore.Claim
         public string LabName { get; set; }
         public ResubmissionReason ResubmissionReason { get; set; }
         public string ClaimNumber { get; set; }
-        public DateTime ClaimDate { get; set; }
+        public DateTime? ClaimDate { get; set; }
         public string PHISCPlaceOfService { get; set; }
         public bool IsPmbConditionEmpty { get; set; }
         public bool IncludeTimeOnDates { get; set; }
         
         public string GetCSV()
         {
+            DateTime eDate = DateTime.MinValue;
+            if (EndDate != null)
+            {
+                eDate = (DateTime)EndDate;
+            }
+
             // ToString any properties who's types are not already strings
             var startDate = (IncludeTimeOnDates) ? StartDate.ToString("yyyyMMddHHmm") : StartDate.ToString("yyyyMMdd");
-            var endDate = (IncludeTimeOnDates) ? EndDate.ToString("yyyyMMddHHmm") : EndDate.ToString("yyyyMMdd");
+            var endDate = (IncludeTimeOnDates) ? eDate.ToString("yyyyMMddHHmm") : eDate.ToString("yyyyMMdd");
             var scriptWrittenDate = (ScriptWrittenDate == DateTime.MinValue) ? string.Empty : ScriptWrittenDate.ToString("yyyyMMdd");
-            var claimDate = (ClaimDate == DateTime.MinValue) ? string.Empty : ClaimDate.ToString("yyyyMMddHHmm");
 
+            var claimDate = string.Empty;
+            if (ClaimDate != null)
+            {
+                var cDate = (DateTime)ClaimDate;
+                claimDate = (cDate == DateTime.MinValue) ? string.Empty : cDate.ToString("yyyyMMddHHmm");
+            }
             var pmbCondition = (PMBCondition) ? "Y" : "N";
             if (IsPmbConditionEmpty)
             {
                 pmbCondition = string.Empty;
             }
 
+            if (EndDate == DateTime.MinValue || EndDate == null)
+            {
+                endDate = string.Empty;
+            }
+
             var type = GetStringFromEnumValue((int)Type);
             var unitType = GetStringFromEnumValue((int)UnitType);
-            var tariffCode = GetStringFromEnumValue((int)TariffCode);
+            var tariffCode = (TariffCode == TariffCodeType.NotApplicable) ? string.Empty : GetStringFromEnumValue((int)TariffCode);
             var modifierType = (ModifierType == TreatmentModifierType.NotApplicable) ? string.Empty : GetStringFromEnumValue((int)ModifierType);
             var serviceTariff = (ServiceTariff == ServiceTariff.NotApplicable) ? string.Empty : GetStringFromEnumValue((int)ServiceTariff);
             var benefitType = (BenefitType == BenefitType.NotApplicable) ? string.Empty : GetStringFromEnumValue((int)BenefitType);

@@ -8,6 +8,7 @@
         Daughter,
         Mother,
         Father,
-        Other
+        Other,
+        NotApplicable
     }
 }

@@ -8,7 +8,7 @@ namespace MedCore.Claim
         /// <summary>
         /// ID/Passport number of the principal member.
         /// </summary>
-        public long IdNumber { get; set; }
+        public long? IdNumber { get; set; }
         /// <summary>
         /// The title of the principal
         /// </summary>
@@ -34,7 +34,7 @@ namespace MedCore.Claim
         /// </summary>
         public bool CardSwipeIndicator { get; set; }
         /// <summary>
-        /// member's account number in the Service Provier's PMA
+        /// Member's account number in the Service Provier's PMA
         /// </summary>
         public string PMANumber { get; set; }
         /// <summary>
@@ -90,11 +90,12 @@ namespace MedCore.Claim
         /// SwitchOn Destination Code for the Medical Scheme / Plan.
         /// </summary>
         public string SwitchOnDestinationCode { get; set; }
+        public bool OmitCardSwipeIndicator { get; set; }
         
         public string GetCSV()
         {
             var title = (Title == MemberTitle.NotApplicable) ? string.Empty : Title.ToString().ToUpper();
-            var cardSwipeIndicator = (CardSwipeIndicator) ? "Y" : "N";
+            var cardSwipeIndicator = (OmitCardSwipeIndicator) ? string.Empty : (CardSwipeIndicator) ? "Y" : "N";
 
             var schemeRegType = (SchemeRegistrationType == SchemeTypes.NotApplicable) ? string.Empty : GetStringFromEnumValue((int)SchemeRegistrationType);
 

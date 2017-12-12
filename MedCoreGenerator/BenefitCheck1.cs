@@ -1,4 +1,5 @@
 ﻿using MedCore.Claim;
+using System.Collections.Generic;
 using System.Text;
 
 namespace MedCore
@@ -8,7 +9,7 @@ namespace MedCore
         public Header Header { get; set; }
         public ServiceProvider ServiceProvider { get; set; }
         public Member Member { get; set; }
-        public Patient Patient { get; set; }
+        public List<Patient> Patients { get; set; }
         public Doctor Doctor { get; set; }
         public Treatment Treatment { get; set; }
         public DoctorDiagnosis Diagnosis { get; set; }
@@ -18,16 +19,21 @@ namespace MedCore
         public string GenerateClaim()
         {
             var sb = new StringBuilder();
-            sb.AppendLine(Header.ToString());
-            sb.AppendLine(ServiceProvider.ToString());
-            sb.AppendLine(Member.ToString());
-            sb.AppendLine(Patient.ToString());
-            sb.AppendLine(Diagnosis.ToString());
-            sb.AppendLine(Treatment.ToString());
-            sb.AppendLine(Doctor.ToString());
-            sb.AppendLine(Treatment.FinancialRecord.ToString());
-            sb.AppendLine(ClaimFinancialRecord.ToString());
-            sb.AppendLine(Footer.ToString());
+            sb.AppendLine(Header.GetCSV());
+            sb.AppendLine(ServiceProvider.GetCSV());
+            sb.AppendLine(Member.GetCSV());
+
+            foreach (var patient in Patients)
+            {
+                sb.AppendLine(patient.GetCSV());
+            }
+
+            sb.AppendLine(Diagnosis.GetCSV());
+            sb.AppendLine(Treatment.GetCSV());
+            sb.AppendLine(Doctor.GetCSV());
+            sb.AppendLine(Treatment.FinancialRecord.GetCSV());
+            sb.AppendLine(ClaimFinancialRecord.GetCSV());
+            sb.AppendLine(Footer.GetCSV());
 
             return sb.ToString();
         }

@@ -6,3 +6,11 @@ D:\Work things\MedCoreGenerator\MedCoreGenerator\obj\Release\MedCoreGenerator.dl
 D:\Work things\MedCoreGenerator\MedCoreGenerator\obj\Release\MedCoreGenerator.pdb
 D:\Work things\MedCoreGenerator\MedCoreGenerator\bin\Release\Newtonsoft.Json.dll
 D:\Work things\MedCoreGenerator\MedCoreGenerator\bin\Release\Newtonsoft.Json.xml
+K:\Work things\MedCoreGenerator\MedCoreGenerator\bin\Release\MedCoreGenerator.dll
+K:\Work things\MedCoreGenerator\MedCoreGenerator\bin\Release\MedCoreGenerator.pdb
+K:\Work things\MedCoreGenerator\MedCoreGenerator\bin\Release\AutoMapper.dll
+K:\Work things\MedCoreGenerator\MedCoreGenerator\bin\Release\Newtonsoft.Json.dll
+K:\Work things\MedCoreGenerator\MedCoreGenerator\bin\Release\AutoMapper.xml
+K:\Work things\MedCoreGenerator\MedCoreGenerator\bin\Release\Newtonsoft.Json.xml
+K:\Work things\MedCoreGenerator\MedCoreGenerator\obj\Release\MedCoreGenerator.dll
+K:\Work things\MedCoreGenerator\MedCoreGenerator\obj\Release\MedCoreGenerator.pdb

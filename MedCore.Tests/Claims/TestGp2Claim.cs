@@ -13,8 +13,8 @@ namespace MedCore.Tests.Claims
         private readonly string _claimsDirectory;
 
         private const string _json = "Gp2.json";
-        private const string _fromClass = "Gp2.txt";
-        private const string _fromString = "Gp2actual.txt";
+        //private const string _fromClass = "Gp2.txt";
+        //private const string _fromString = "Gp2actual.txt";
 
         public TestGp2Claim()
         {
@@ -35,11 +35,11 @@ namespace MedCore.Tests.Claims
                 var serializer = new JsonSerializer();
                 serializer.Serialize(file, claim);
 
-                Process.Start(_claimsDirectory);
+                //Process.Start(_claimsDirectory);
             }
             
-            File.WriteAllText(Path.Combine(_claimsDirectory, _fromClass), claim.GetCSV());
-            File.WriteAllText(Path.Combine(_claimsDirectory, _fromString), GetExampleCSV());
+            //File.WriteAllText(Path.Combine(_claimsDirectory, _fromClass), claim.GetCSV());
+            //File.WriteAllText(Path.Combine(_claimsDirectory, _fromString), GetExampleCSV());
         }
         
         private static Gp2Claim GetExampleClaim()

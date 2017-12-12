@@ -19,7 +19,7 @@ namespace MedCore.Claim
         public string GetCSV()
         {
             var doctorType = GetStringFromEnumValue((int)DoctorType);
-            var cmsType = GetStringFromEnumValue((int)CMSType);
+            var cmsType = (CMSType == SchemeTypes.NotApplicable) ? string.Empty : GetStringFromEnumValue((int)CMSType);
             var designatedProvider = (DesignatedProvider) ? "Y" : "N";
             if (DesignatedProviderOmitted)
             {

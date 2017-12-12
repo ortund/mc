@@ -51,3 +51,5 @@ C:\Users\shaw_d\Documents\GitHub\mc\MedCore.Tests\obj\Debug\MedCore.Tests.csproj
 C:\Users\shaw_d\Documents\GitHub\mc\MedCore.Tests\obj\Debug\MedCore.Tests.csproj.CoreCompileInputs.cache
 C:\Users\shaw_d\Documents\GitHub\mc\MedCore.Tests\obj\Debug\MedCore.Tests.dll
 C:\Users\shaw_d\Documents\GitHub\mc\MedCore.Tests\obj\Debug\MedCore.Tests.pdb
+K:\Work things\MedCoreGenerator\MedCore.Tests\bin\Debug\Newtonsoft.Json.dll
+K:\Work things\MedCoreGenerator\MedCore.Tests\bin\Debug\Newtonsoft.Json.xml

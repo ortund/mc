@@ -36,7 +36,7 @@ namespace MedCore.Tests.Claims
                 var serializer = new JsonSerializer();
                 serializer.Serialize(file, claim);
 
-                Process.Start(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "MedCore\\Claims"));
+                //Process.Start(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "MedCore\\Claims"));
             }
         }
 
@@ -386,7 +386,9 @@ namespace MedCore.Tests.Claims
                 ReceiptNumber = string.Empty,
                 PatientLiableAmount = 0,
                 MedicalFundLiableAmount = 136000,
-                MemberReimbursementAmount = 0
+                MemberReimbursementAmount = 0,
+                OmitReceiptNumber = false,
+                IsReceiptNumberBlank = true
             };
             var footer = new Footer
             {

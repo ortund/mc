@@ -34,7 +34,7 @@ namespace MedCore.Tests
         public void GenerateGp2Claim()
         {
             var output = _gp2Claim.GetCSV();
-            File.WriteAllText(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "MedCore\\Claims\\Gp2Output.txt"), output);
+            //File.WriteAllText(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "MedCore\\Claims\\Gp2Output.txt"), output);
             
             var actual = TestGp2Claim.GetExampleCSV();
 

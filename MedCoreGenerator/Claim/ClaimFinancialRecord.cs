@@ -1,4 +1,6 @@
-﻿namespace MedCore.Claim
+﻿using System.Text;
+
+namespace MedCore.Claim
 {
     public class ClaimFinancialRecord : ICreatesCSV
     {
@@ -14,10 +16,43 @@
         public decimal PatientLiableAmount { get; set; }
         public decimal MedicalFundLiableAmount { get; set; }
         public decimal MemberReimbursementAmount { get; set; }
-        
+        #region bools
+        public bool OmitGrossAmount { get; set; }
+        public bool OmitTotalClaimedAmount { get; set; }
+        public bool OmitClaimDiscountAmount { get; set; }
+        public bool OmitClaimDeductibleAmount { get; set; }
+        public bool OmitMMAPSurchargeAmount { get; set; }
+        public bool OmitCoPaymentAmount { get; set; }
+        public bool OmitReceiptNumber { get; set; }
+        public bool OmitPatientLiableAmount { get; set; }
+        public bool OmitMedicalFundLiableAmount { get; set; }
+        public bool OmitMemberReimbursementAmount { get; set; }
+
+        public bool IsReceiptNumberBlank { get; set; }
+        #endregion
+
         public string GetCSV()
         {
-            return $"{TYPE}|{NetAmount}|{GrossAmount}|{TotalClaimedAmount}|{ClaimDiscountAmount}|{ClaimDeductibleAmount}|{MMAPSurchargeAmount}|{CoPaymentAmount}|{ReceiptNumber}|{PatientLiableAmount}|{MedicalFundLiableAmount}|{MemberReimbursementAmount}|";
+            var sb = new StringBuilder();
+
+            sb.Append($"{TYPE}|{NetAmount}|");
+            
+            if (!OmitGrossAmount) sb.Append($"{GrossAmount}|");
+            if (!OmitTotalClaimedAmount) sb.Append($"{TotalClaimedAmount}|");
+            if (!OmitClaimDiscountAmount) sb.Append($"{ClaimDiscountAmount}|");
+            if (!OmitClaimDeductibleAmount) sb.Append($"{ClaimDeductibleAmount}|");
+            if (!OmitMMAPSurchargeAmount) sb.Append($"{MMAPSurchargeAmount}|");
+            if (!OmitCoPaymentAmount) sb.Append($"{CoPaymentAmount}|");
+            if (!OmitReceiptNumber)
+            {
+                sb.Append((IsReceiptNumberBlank) ? $"{string.Empty}|" : $"{ReceiptNumber}|");
+            }
+
+            if (!OmitPatientLiableAmount) sb.Append($"{PatientLiableAmount}|");
+            if (!OmitMedicalFundLiableAmount) sb.Append($"{MedicalFundLiableAmount}|");
+            if (!OmitMemberReimbursementAmount) sb.Append($"{MemberReimbursementAmount}|");
+
+            return sb.ToString();
         }
     }
 }

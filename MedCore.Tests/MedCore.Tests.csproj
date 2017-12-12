@@ -50,6 +50,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AnaesthetistTest.cs" />
+    <Compile Include="BenefitCheckTest.cs" />
+    <Compile Include="Claims\TestBenefitCheck.cs" />
+    <Compile Include="Claims\TestDentistClaim.cs" />
+    <Compile Include="DentistTest.cs" />
     <Compile Include="Gp2Test.cs" />
     <Compile Include="GpTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -35,7 +35,7 @@ namespace MedCore.Tests.Claims
                 var serializer = new JsonSerializer();
                 serializer.Serialize(file, claim);
 
-                Process.Start(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "MedCore\\Claims"));
+                //Process.Start(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "MedCore\\Claims"));
             }
         }
    
