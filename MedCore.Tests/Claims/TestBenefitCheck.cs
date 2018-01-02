@@ -45,7 +45,7 @@ namespace MedCore.Tests.Claims
 
             sb.AppendLine("H|4567899|100|test:10.130.212.11729|");
             sb.AppendLine("S|201711010337|1234567|DIAGNOSTIC TEST  INC.|1234567||"); // Made a space for the vat number
-            sb.AppendLine("M||||||123456789||||||||||||||DHEA0000|");
+            sb.AppendLine("M||||||123456789|||||||DHEA0000|");
             sb.AppendLine("P|4|BOND|NZ|JAMES |20171002|F||1234567891011||||||||||4567899|01|02|01|01|"); // Made a space for many properties
             sb.AppendLine("D|01|01|Z03.8||01|");
             sb.AppendLine("T|1|201711010337||00|||02|100|06|30110|||||CHEST 2 VIEWS|||||||||||01|");
@@ -83,7 +83,6 @@ namespace MedCore.Tests.Claims
                 FullNames = string.Empty,
                 MembershipNumber = 123456789,
                 CardSwipeIndicator = false,
-                OmitCardSwipeIndicator = true,
                 PMANumber = string.Empty,
                 Address1 = string.Empty, // Spec is missing fields starting here.
                 Address2 = string.Empty,
@@ -96,8 +95,27 @@ namespace MedCore.Tests.Claims
                 SchemeRegistrationNumber = string.Empty,
                 SchemeRegistrationType = Enums.SchemeTypes.NotApplicable, // Missing fields end here.
                 SchemeClaimOption = string.Empty,
-                SwitchOnDestinationCode = "DHEA0000"
+                SwitchOnDestinationCode = "DHEA0000",                
             };
+
+            member.CardSwipeIndicator = true;
+            member.OmitAddress2 = true;
+            member.OmitCity = true;
+            member.OmitPostalCode = true;
+            member.OmitPhoneNumber = true;
+            member.OmitPlan = true;
+            member.OmitSchemeRefNo = true;
+            member.OmitSchemeName = true;
+
+            member.OmitCardSwipeIndicator = true;
+            member.IsAddress2Blank = true;
+            member.IsCityBlank = true;
+            member.IsPostalCodeBlank = true;
+            member.IsPhoneNumberBlank = true;
+            member.IsPlanBlank = true;
+            member.IsSchemeRefNoBlank = true;
+            member.IsSchemeNameBlank = true;
+
             var patients = new List<Patient>
             {
                 new Patient

@@ -15,10 +15,10 @@ namespace MedCore
         public string GenerateClaim()
         {
             var sb = new StringBuilder();
-            sb.AppendLine(Header.ToString());
-            sb.AppendLine(ServiceProvider.ToString());
-            sb.AppendLine(Member.ToString());
-            sb.AppendLine(Footer.ToString());
+            sb.AppendLine(Header.GetCSV());
+            sb.AppendLine(ServiceProvider.GetCSV());
+            sb.AppendLine(Member.GetCSV());
+            sb.AppendLine(Footer.GetCSV());
 
             return sb.ToString();
         }

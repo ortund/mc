@@ -1,8 +1,8 @@
-﻿using Newtonsoft.Json;
+﻿using MedCore.Tests.Claims;
+using Newtonsoft.Json;
 using NUnit.Framework;
 using System;
 using System.IO;
-using MedCore.Tests.Claims;
 
 namespace MedCore.Tests
 {
@@ -14,11 +14,10 @@ namespace MedCore.Tests
         private readonly string _gp2File = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "MedCore\\Claims\\Gp2.json");
 
         [SetUp]
-        public void Setup()
+        public void SetUp()
         {
             if (!File.Exists(_gp2File))
             {
-                // No claim file has been generated. Generate a claim and write it to a file.
                 var testClaim = new TestGp2Claim();
                 testClaim.CreateFiles();
             }
@@ -34,8 +33,6 @@ namespace MedCore.Tests
         public void GenerateGp2Claim()
         {
             var output = _gp2Claim.GetCSV();
-            //File.WriteAllText(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "MedCore\\Claims\\Gp2Output.txt"), output);
-            
             var actual = TestGp2Claim.GetExampleCSV();
 
             Assert.That(output, Is.EqualTo(actual));

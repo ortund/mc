@@ -24,3 +24,11 @@ C:\Users\shaw_d\Documents\GitHub\mc\MedCoreGenerator\obj\Debug\MedCore.csprojRes
 C:\Users\shaw_d\Documents\GitHub\mc\MedCoreGenerator\obj\Debug\MedCore.csproj.CoreCompileInputs.cache
 C:\Users\shaw_d\Documents\GitHub\mc\MedCoreGenerator\obj\Debug\MedCoreGenerator.dll
 C:\Users\shaw_d\Documents\GitHub\mc\MedCoreGenerator\obj\Debug\MedCoreGenerator.pdb
+C:\Users\logan\Documents\GitHub\mc\MedCoreGenerator\bin\Debug\MedCoreGenerator.dll
+C:\Users\logan\Documents\GitHub\mc\MedCoreGenerator\bin\Debug\MedCoreGenerator.pdb
+C:\Users\logan\Documents\GitHub\mc\MedCoreGenerator\bin\Debug\AutoMapper.dll
+C:\Users\logan\Documents\GitHub\mc\MedCoreGenerator\bin\Debug\Newtonsoft.Json.dll
+C:\Users\logan\Documents\GitHub\mc\MedCoreGenerator\bin\Debug\AutoMapper.xml
+C:\Users\logan\Documents\GitHub\mc\MedCoreGenerator\bin\Debug\Newtonsoft.Json.xml
+C:\Users\logan\Documents\GitHub\mc\MedCoreGenerator\obj\Debug\MedCoreGenerator.dll
+C:\Users\logan\Documents\GitHub\mc\MedCoreGenerator\obj\Debug\MedCoreGenerator.pdb

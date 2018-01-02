@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text;
 
 namespace MedCore.Era
 {
@@ -15,13 +16,41 @@ namespace MedCore.Era
         public string SchemeEmailAddress { get; set; }
         public string RaReferenceNumber { get; set; }
         public DateTime RaIssueDate { get; set; }
+        public decimal RaOpeningBalance { get; set; }
         public decimal RaClosingBalance { get; set; }
 
-        public override string ToString()
-        {
-            var raIssueDate = RaIssueDate.ToString("yyyyMMddHHmm");
+        public bool OpeningBalanceOmitted { get; set; }
+        public bool ClosingBalanceOmitted { get; set; }
 
-            return $"{TYPE}|{SchemeName}|{SchemeAdminName}|{SchemeRegistrationNumber}|{SwitchDestinationCode}|{SchemeContactDetails}|{SchemeTelephoneNumber}|{SchemeFaxNumber}|{SchemeEmailAddress}|{RaReferenceNumber}|{raIssueDate}|{RaClosingBalance}|";
+        private string _openingBalance;
+        private string _closingBalance;
+        public string GetCSV()
+        {
+            DoRefactoring();
+
+            var sb = new StringBuilder();
+
+            sb.Append($"{TYPE}|");
+            sb.Append($"{SchemeName}|");
+            sb.Append($"{SchemeAdminName}|");
+            sb.Append($"{SchemeRegistrationNumber}|");
+            sb.Append($"{SwitchDestinationCode}|");
+            sb.Append($"{SchemeContactDetails}|");
+            sb.Append($"{SchemeTelephoneNumber}|");
+            sb.Append($"{SchemeFaxNumber}|");
+            sb.Append($"{SchemeEmailAddress}|");
+            sb.Append($"{RaReferenceNumber}|");
+            sb.Append($"{RaIssueDate:yyyyMMdd}|");
+            sb.Append($"{_openingBalance}|");
+            sb.Append($"{_closingBalance}|");
+
+            return sb.ToString();
+        }
+
+        private void DoRefactoring()
+        {
+            _openingBalance = (OpeningBalanceOmitted) ? string.Empty : RaOpeningBalance.ToString();
+            _closingBalance = (ClosingBalanceOmitted) ? string.Empty : RaClosingBalance.ToString();
         }
     }
 }

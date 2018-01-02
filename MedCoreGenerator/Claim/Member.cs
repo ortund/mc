@@ -1,4 +1,5 @@
 ﻿using MedCore.Enums;
+using System.Text;
 
 namespace MedCore.Claim
 {
@@ -6,7 +7,7 @@ namespace MedCore.Claim
     {
         private const string TYPE = "M";
         /// <summary>
-        /// ID/Passport number of the principal member.
+        /// ID/Passport number of the principal 
         /// </summary>
         public long? IdNumber { get; set; }
         /// <summary>
@@ -14,21 +15,21 @@ namespace MedCore.Claim
         /// </summary>
         public MemberTitle Title { get; set; }
         /// <summary>
-        /// Initial(s) of the principal member.
+        /// Initial(s) of the principal 
         /// </summary>
         public string Initials { get; set; }
         /// <summary>
-        /// Surname of the prinicipal member.
+        /// Surname of the prinicipal 
         /// </summary>
         public string Surname { get; set; }
         /// <summary>
-        /// Fill name(s) of the prinicipal member.
+        /// Fill name(s) of the prinicipal 
         /// </summary>
         public string FullNames { get; set; }
         /// <summary>
-        /// Medical Fund membership number of the principal member.
+        /// Medical Fund membership number of the principal 
         /// </summary>
-        public long MembershipNumber { get; set; }
+        public long? MembershipNumber { get; set; }
         /// <summary>
         /// Indicator to show if the member information was retrieved by swiping a membership card.
         /// </summary>
@@ -54,7 +55,7 @@ namespace MedCore.Claim
         /// </summary>
         public string PostalCode { get; set; }
         /// <summary>
-        /// Telephone/Cellphone number of the principal member.
+        /// Telephone/Cellphone number of the principal 
         /// </summary>
         public string PhoneNumber { get; set; }
         /// <summary>
@@ -90,16 +91,74 @@ namespace MedCore.Claim
         /// SwitchOn Destination Code for the Medical Scheme / Plan.
         /// </summary>
         public string SwitchOnDestinationCode { get; set; }
+
         public bool OmitCardSwipeIndicator { get; set; }
-        
+        public bool OmitAddress2 { get; set; }
+        public bool OmitCity { get; set; }
+        public bool OmitPostalCode { get; set; }
+        public bool OmitPhoneNumber { get; set; }
+        public bool OmitPlan { get; set; }
+        public bool OmitSchemeRefNo { get; set; }
+        public bool OmitSchemeName { get; set; }
+        public bool OmitSchemeRegistrationNumber { get; set; }
+        public bool OmitSchemeRegistrationType { get; set; }
+        public bool OmitSchemeClaimOption { get; set; }
+
+        public bool IsAddress2Blank { get; set; }
+        public bool IsCityBlank { get; set; }
+        public bool IsPostalCodeBlank { get; set; }
+        public bool IsPhoneNumberBlank { get; set; }
+        public bool IsPlanBlank { get; set; }
+        public bool IsSchemeRefNoBlank { get; set; }
+        public bool IsSchemeNameBlank { get; set; }
+        public bool IsSchemeRegistrationNumberBlank { get; set; }
+        public bool IsSchemeRegistrationTypeBlank { get; set; }
+        public bool IsSchemeClaimOptionBlank { get; set; }
+
+        private string _title;
+        private string _membershipNumber;
+        private string _cardSwipeIndicator;
+        private string _schemeRegType;
+
+        private void DoRefactoring()
+        {
+            _title = (Title == MemberTitle.NotApplicable) ? string.Empty : Title.ToString().ToUpper();
+            _membershipNumber = (MembershipNumber != null) ? MembershipNumber.ToString() : string.Empty;
+            _cardSwipeIndicator = (OmitCardSwipeIndicator) ? string.Empty : (CardSwipeIndicator) ? "Y" : "N";
+            _schemeRegType = (SchemeRegistrationType == SchemeTypes.NotApplicable) ? string.Empty : GetStringFromEnumValue((int)SchemeRegistrationType);
+        }
+
         public string GetCSV()
         {
-            var title = (Title == MemberTitle.NotApplicable) ? string.Empty : Title.ToString().ToUpper();
-            var cardSwipeIndicator = (OmitCardSwipeIndicator) ? string.Empty : (CardSwipeIndicator) ? "Y" : "N";
+            DoRefactoring();
 
-            var schemeRegType = (SchemeRegistrationType == SchemeTypes.NotApplicable) ? string.Empty : GetStringFromEnumValue((int)SchemeRegistrationType);
+            var sb = new StringBuilder();
 
-            return $"{TYPE}|{IdNumber}|{title}|{Initials}|{Surname}|{FullNames}|{MembershipNumber}|{cardSwipeIndicator}|{PMANumber}|{Address1}|{Address2}|{City}|{PostalCode}|{PhoneNumber}|{Plan}|{SchemeRefNo}|{SchemeName}|{SchemeRegistrationNumber}|{schemeRegType}|{SchemeClaimOption}|{SwitchOnDestinationCode}|";
+            sb.Append($"{TYPE}|");
+            sb.Append($"{IdNumber}|");
+            sb.Append($"{_title}|");
+            sb.Append($"{Initials}|");
+            sb.Append($"{Surname}|");
+            sb.Append($"{FullNames}|");
+            sb.Append($"{_membershipNumber}|");
+            sb.Append($"{_cardSwipeIndicator}|");
+            sb.Append($"{PMANumber}|");
+            sb.Append($"{Address1}|");
+            
+            if (!OmitAddress2) sb.Append((IsAddress2Blank) ? $"{string.Empty}|" : $"{Address2}|");
+            if (!OmitCity) sb.Append((IsCityBlank) ? $"{string.Empty}|" : $"{City}|");
+            if (!OmitPostalCode) sb.Append((IsPostalCodeBlank) ? $"{string.Empty}|" : $"{PostalCode}|");
+            if (!OmitPhoneNumber) sb.Append((IsPhoneNumberBlank) ? $"{string.Empty}|" : $"{PhoneNumber}|");
+            if (!OmitPlan) sb.Append((IsPlanBlank) ? $"{string.Empty}|" : $"{Plan}|");
+            if (!OmitSchemeRefNo) sb.Append((IsSchemeRefNoBlank) ? $"{string.Empty}|" : $"{SchemeRefNo}|");
+            if (!OmitSchemeName) sb.Append((IsSchemeNameBlank) ? $"{string.Empty}|" : $"{SchemeName}|");
+            if (!OmitSchemeRegistrationNumber) sb.Append((IsSchemeRegistrationNumberBlank) ? $"{string.Empty}|" : $"{SchemeRegistrationNumber}|");
+            if (!OmitSchemeRegistrationType) sb.Append((IsSchemeRegistrationTypeBlank) ? $"{string.Empty}|" : $"{_schemeRegType}|");
+            if (!OmitSchemeClaimOption) sb.Append((IsSchemeClaimOptionBlank) ? $"{string.Empty}|" : $"{SchemeClaimOption}|");
+            
+            sb.Append($"{SwitchOnDestinationCode}|");
+
+            return sb.ToString();
         }
     }
 }

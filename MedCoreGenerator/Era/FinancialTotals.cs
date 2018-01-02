@@ -1,4 +1,6 @@
-﻿namespace MedCore.Era
+﻿using System.Text;
+
+namespace MedCore.Era
 {
     public class FinancialTotals
     {
@@ -10,9 +12,18 @@
         public decimal TotalPaidToMember { get; set; }
         public decimal TotalPatientLiableAmount { get; set; }
 
-        public override string ToString()
+        public string GetCSV()
         {
-            return $"{TYPE}|{TotalClaimedAmount}|{TotalPaidAmount}|{TotalJournalAmount}|{TotalPaidToMember}|{TotalPatientLiableAmount}|";
+            var sb = new StringBuilder();
+
+            sb.Append($"{TYPE}|");
+            sb.Append($"{TotalClaimedAmount}|");
+            sb.Append($"{TotalPaidAmount}|");
+            sb.Append($"{TotalJournalAmount}|");
+            sb.Append($"{TotalPaidToMember}|");
+            sb.Append($"{TotalPatientLiableAmount}|");
+
+            return sb.ToString();
         }
     }
 }

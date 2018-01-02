@@ -1,4 +1,6 @@
-﻿namespace MedCore.Era
+﻿using System.Text;
+
+namespace MedCore.Era
 {
     public class Response
     {
@@ -6,9 +8,15 @@
         public string Code { get; set; }
         public string Description { get; set; }
 
-        public override string ToString()
+        public string GetCSV()
         {
-            return $"{TYPE}|{Code}|{Description}|";
+            var sb = new StringBuilder();
+
+            sb.Append($"{TYPE}|");
+            sb.Append($"{Code}|");
+            sb.Append($"{Description}|");
+
+            return sb.ToString();
         }
     }
 }

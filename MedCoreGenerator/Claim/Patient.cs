@@ -1,5 +1,6 @@
 ﻿using MedCore.Enums;
 using System;
+using System.Text;
 
 namespace MedCore.Claim
 {
@@ -28,46 +29,79 @@ namespace MedCore.Claim
         public decimal? Height { get; set; }
         public decimal? Weight { get; set; }
         public string PMAClaimReferenceNumber { get; set; }
-
         public bool PadDecimals { get; set; }
-        
+
+        private string _recallDate;
+        private string _injuryDate;
+        private string _gender;
+        private string _patientRelationCode;
+        private string _patientType;
+        private string _height;
+        private string _weight;
         public string GetCSV()
         {
-            var dob = DOB.ToString("yyyyMMdd");
+            DoRefactoring();
 
-            var recallDate = string.Empty;
+            var sb = new StringBuilder();
+
+            sb.Append($"{TYPE}|");
+            sb.Append($"{DependantCode}|");
+            sb.Append($"{Surname}|");
+            sb.Append($"{Initials}|");
+            sb.Append($"{FullName}|");
+            sb.Append($"{DOB:yyyyMMdd}|");
+            sb.Append($"{_gender}|");
+            sb.Append($"{_patientRelationCode}|");
+            sb.Append($"{IdNumber}|");
+            sb.Append($"{_recallDate}|");
+            sb.Append($"{COID}|");
+            sb.Append($"{_injuryDate}|");
+            sb.Append($"{EmployerName}|");
+            sb.Append($"{EmployerRegistrationNumber}|");
+            sb.Append($"{EmployeeNumber}|");
+            sb.Append($"{InsuranceNumber}|");
+            sb.Append($"{AuthorizationNumber}|");
+            sb.Append($"{ConfirmationNumber}|");
+            sb.Append($"{PMANumber}|");
+            sb.Append($"{_patientType}|");
+            sb.Append($"{_height}|");
+            sb.Append($"{_weight}|");
+            sb.Append($"{PMAClaimReferenceNumber}|");
+
+            return sb.ToString();
+        }
+
+        private void DoRefactoring()
+        {
             if (RecallDate != null)
             {
                 var rDate = (DateTime)RecallDate;
-                recallDate = (rDate == DateTime.MinValue) ? string.Empty : rDate.ToString("yyyyMMddHHmm");
+                _recallDate = (rDate == DateTime.MinValue) ? string.Empty : rDate.ToString("yyyyMMddHHmm");
             }
-
-            var injuryDate = string.Empty;
+            
             if (InjuryDate != null)
             {
                 var iDate = (DateTime)InjuryDate;
-                injuryDate = (iDate == DateTime.MinValue) ? string.Empty : iDate.ToString("yyyyMMdd");
+                _injuryDate = (iDate == DateTime.MinValue) ? string.Empty : iDate.ToString("yyyyMMdd");
             }
 
-            var gender = Gender.ToString().Substring(0, 1);
-            var patientRelationCode = (PatientRelationCode == PatientRelationCode.NotApplicable) ? string.Empty : GetStringFromEnumValue((int)PatientRelationCode);
-            var patientType = (PatientType == PatientType.NotApplicable) ? string.Empty : GetStringFromEnumValue((int)PatientType);
+            _gender = Gender.ToString().Substring(0, 1);
+            _patientRelationCode = (PatientRelationCode == PatientRelationCode.NotApplicable) ? string.Empty : GetStringFromEnumValue((int)PatientRelationCode);
+            _patientType = (PatientType == PatientType.NotApplicable) ? string.Empty : GetStringFromEnumValue((int)PatientType);
 
-            var height = string.Empty;
-            var weight = string.Empty;
+            _height = string.Empty;
+            _weight = string.Empty;
 
             if (PadDecimals && Height != null && Weight != null)
             {
-                height = (Height > 0) ? $"0{Height.ToString()}" : string.Empty;
-                weight = (Weight > 0) ? $"0{Weight.ToString()}" : string.Empty;
+                _height = (Height > 0) ? $"0{Height.ToString()}" : string.Empty;
+                _weight = (Weight > 0) ? $"0{Weight.ToString()}" : string.Empty;
             }
             else if (Height != null && Weight != null)
             {
-                height = (Height > 0) ? Height.ToString() : string.Empty;
-                weight = (Weight > 0) ? Weight.ToString() : string.Empty;
+                _height = (Height > 0) ? Height.ToString() : string.Empty;
+                _weight = (Weight > 0) ? Weight.ToString() : string.Empty;
             }
-
-            return $"{TYPE}|{DependantCode}|{Surname}|{Initials}|{FullName}|{dob}|{gender}|{patientRelationCode}|{IdNumber}|{recallDate}|{COID}|{injuryDate}|{EmployerName}|{EmployerRegistrationNumber}|{EmployeeNumber}|{InsuranceNumber}|{AuthorizationNumber}|{ConfirmationNumber}|{PMANumber}|{patientType}|{height}|{weight}|{PMAClaimReferenceNumber}|";
         }
     }
 }

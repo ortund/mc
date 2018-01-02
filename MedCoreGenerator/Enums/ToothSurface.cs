@@ -8,6 +8,7 @@
         Lingual,
         Incisal,
         Palletal,
-        Measal
+        Measal,
+        NotApplicable
     }
 }

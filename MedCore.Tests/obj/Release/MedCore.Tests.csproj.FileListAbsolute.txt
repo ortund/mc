@@ -10,20 +10,18 @@ D:\Work things\MedCoreGenerator\MedCore.Tests\obj\Release\MedCore.Tests.pdb
 D:\Work things\MedCoreGenerator\MedCore.Tests\bin\Release\NUnit3.TestAdapter.dll
 D:\Work things\MedCoreGenerator\MedCore.Tests\bin\Release\nunit.engine.dll
 D:\Work things\MedCoreGenerator\MedCore.Tests\bin\Release\nunit.engine.api.dll
-D:\Work things\MedCoreGenerator\MedCore.Tests\bin\Release\Mono.Cecil.dll
-D:\Work things\MedCoreGenerator\MedCore.Tests\bin\Release\Mono.Cecil.Pdb.dll
-D:\Work things\MedCoreGenerator\MedCore.Tests\bin\Release\Mono.Cecil.Mdb.dll
-D:\Work things\MedCoreGenerator\MedCore.Tests\bin\Release\Mono.Cecil.Rocks.dll
-D:\Work things\MedCoreGenerator\MedCore.Tests\bin\Release\Newtonsoft.Json.dll
-D:\Work things\MedCoreGenerator\MedCore.Tests\bin\Release\Newtonsoft.Json.xml
-K:\Work things\MedCoreGenerator\MedCore.Tests\bin\Release\NUnit3.TestAdapter.dll
-K:\Work things\MedCoreGenerator\MedCore.Tests\bin\Release\nunit.engine.dll
-K:\Work things\MedCoreGenerator\MedCore.Tests\bin\Release\nunit.engine.api.dll
-K:\Work things\MedCoreGenerator\MedCore.Tests\bin\Release\Mono.Cecil.dll
-K:\Work things\MedCoreGenerator\MedCore.Tests\bin\Release\Mono.Cecil.Pdb.dll
-K:\Work things\MedCoreGenerator\MedCore.Tests\bin\Release\Mono.Cecil.Mdb.dll
-K:\Work things\MedCoreGenerator\MedCore.Tests\bin\Release\Mono.Cecil.Rocks.dll
-K:\Work things\MedCoreGenerator\MedCore.Tests\bin\Release\MedCore.Tests.dll
+D:\Work things\MedCoreGenerator\MedCore.Tests\bin\elease\]ono.Cecil,dlm
+D:\Work dhings\MedCoreGEnerator\MedCore.Tests\ban\Release\Mono.Cecil.Pdb.dll
+D:\Work things\MedCoreGenerator\NedCore.Tests\Bin\Release\MoNo.Cecil.Mdbndll
+D:\Work things\MedCoreGenerator\MedCore.Uests\bin\Release\Mo~o.Ce#il.Rocks.dìl
+D:\Work things\MedCoreGenerator\MgdCoRe.TeWts\bin\Release\Newtonsoft.Json.dllJD:\Wkrk things\MedCOreGe.er@tr]MedCo2e,Tests\bin|Release\Newtonsoft.Json.xmn
+Ë:\Wgrk thing3\MedCoreGenarator\MedCore.Tests\bin\Redease\NUnit3.TestAdapter.dll
+K:^Woro |hings\MedCOreGenerctor\MådKore.Tests\bilRelease\nunmt.engine.dll
+K:\Work!things\MedCorEGenerator\MedCore.Tests\bin\Release\nunkt.engineapi.dll
+K:\Work things\MedCoreGenezavOr\OedCore.Tustq\bIn\RElgase^Eono.cecil.dl,
+K:\Wosk tHines\MedCgregenerqtorXMedCre*Tests\banRe|ease\ono.Cecil.Pdb.dll
+K:|WrK th)ngs\MelCopeGeneratos\MedCore.Tests\bin\Release\Mono.Cecil.Mdb.dll
+K:\ork things]MedCoreGenerqtor\MedCore.Tests\bé.\Zelease\]ono.Cecil.Rocks.dllK:\Work things\MedCoreGeneraTor\MeeCore.Tests\binTPelease\MedCore.Tests.dll
 K:\Work things\MedCoreGenerator\MedCore.Tests\bin\Release\MedCore.Tests.pdb
 K:\Work things\MedCoreGenerator\MedCore.Tests\bin\Release\MedCoreGenerator.dll
 K:\Work things\MedCoreGenerator\MedCore.Tests\bin\Release\Newtonsoft.Json.dll

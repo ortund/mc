@@ -7,7 +7,7 @@
         public string FirstNames { get; set; }
         public string MembershipNumber { get; set; }
 
-        public override string ToString()
+        public string GetCSV()
         {
             return $"{TYPE}|{Surname}|{FirstNames}|{MembershipNumber}|";
         }

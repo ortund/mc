@@ -33,7 +33,7 @@ namespace MedCore.Tests
 
         [Test]
         public void GenerateDentistClaim()
-        {
+         {
             var output = _dentistClaim.GenerateClaim();
 
             var testClaim = new TestDentistClaim();

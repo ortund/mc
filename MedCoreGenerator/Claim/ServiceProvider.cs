@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text;
 
 namespace MedCore.Claim
 {
@@ -28,10 +29,24 @@ namespace MedCore.Claim
         /// The VAT registration number of the Service Provider / Billing Practice.
         /// </summary>
         public string VATNumber { get; set; }
+
+        public bool IsVatNumberBlank { get; set; }
         
         public string GetCSV()
         {
-            return $"{_type}|{DateCreated:yyyyMMddHHmm}|{PracticePCNSNumber}|{BillingPracticeName}|{DatasetIdentifier}|{VATNumber}|";
+            var sb = new StringBuilder();
+            sb.Append($"{_type}|");
+            sb.Append($"{DateCreated:yyyyMMddHHmm}|");
+            sb.Append($"{PracticePCNSNumber}|");
+            sb.Append($"{BillingPracticeName}|");
+            sb.Append($"{DatasetIdentifier}|");
+            
+            if (!IsVatNumberBlank)
+            {
+                sb.Append($"{VATNumber}|");
+            }
+
+            return sb.ToString();
         }
     }
 }

@@ -6,7 +6,7 @@
         public string PCNSNumber { get; set; }
         public string Name { get; set; }
 
-        public override string ToString()
+        public string GetCSV()
         {
             return $"{TYPE}|{PCNSNumber}|{Name}|";
         }

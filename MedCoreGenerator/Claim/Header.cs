@@ -1,4 +1,6 @@
-﻿namespace MedCore.Claim
+﻿using System.Text;
+
+namespace MedCore.Claim
 {
     /// <summary>
     /// Represents a claim header record.
@@ -32,10 +34,18 @@
 
         public string GetCSV()
         {
-            if (!ERAVersionOmitted)
-                return $"{TYPE}|{TransmissionNumber}|{Version}|{PackageInfo}|{ERAVersion}|";
+            var sb = new StringBuilder();
 
-            return $"{TYPE}|{TransmissionNumber}|{Version}|{PackageInfo}|";
+            sb.Append($"{TYPE}|");
+            sb.Append($"{TransmissionNumber}|");
+            sb.Append($"{Version}|");
+            sb.Append($"{PackageInfo}|");
+
+            if (!ERAVersionOmitted)
+            {
+                sb.Append($"{ERAVersion}|");
+            }
+            return sb.ToString();
         }
     }
 }

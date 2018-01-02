@@ -77,8 +77,9 @@ namespace MedCore.Tests.Claims
                 SchemeRegistrationNumber = string.Empty,
                 SchemeRegistrationType = Enums.SchemeTypes.NotApplicable,
                 SchemeClaimOption = string.Empty,
-                SwitchOnDestinationCode = "MHPO00001"
+                SwitchOnDestinationCode = "MHPO0001"
             };
+
             var patient = new Patient
             {
                 DependantCode = "00",
@@ -88,7 +89,7 @@ namespace MedCore.Tests.Claims
                 DOB = DateTime.Parse("2017-11-02"),
                 Gender = Enums.Gender.Male,
                 PatientRelationCode = Enums.PatientRelationCode.NotApplicable,
-                IdNumber = null,
+                IdNumber = 1234567891012,
                 RecallDate = null,
                 COID = string.Empty,
                 InjuryDate = null,
@@ -97,20 +98,21 @@ namespace MedCore.Tests.Claims
                 EmployeeNumber = string.Empty,
                 InsuranceNumber = string.Empty,
                 AuthorizationNumber = string.Empty,
-                ConfirmationNumber = "00015",
-                PMANumber = string.Empty,
+                ConfirmationNumber = string.Empty,
+                PMANumber = "00015",
                 PatientType = Enums.PatientType.NotApplicable,
                 Height = null,
-                Weight = 1077917,
-                PMAClaimReferenceNumber = string.Empty
+                Weight = null,
+                PMAClaimReferenceNumber = "1077917"
             };
             var treatments = new List<Treatment>
             {
                 new Treatment
                 {
+                    IncludeTimeOnDates = true,
                     Number = "1",
-                    StartDate = DateTime.Parse("2017-10-02 00:00"),
-                    EndDate = DateTime.Parse("2017-10-02 00:00"),
+                    StartDate = DateTime.Parse("2017-10-05 00:00"),
+                    EndDate = DateTime.Parse("2017-10-05 00:00"),
                     AuthorizationNumber = string.Empty,
                     InvoiceNumber = "15",
                     ClaimLineNumber = "11731223",
@@ -136,11 +138,12 @@ namespace MedCore.Tests.Claims
                     Doctor = new Doctor
                     {
                         PCNSNumber = "1234567",
-                        Name = string.Empty,
+                        Name = "TEST TN DR",
                         DoctorType = Enums.DoctorType.AttendingTreatingPrescribing,
                         CMSRegistrationNumber = "DP1234567",
                         CMSType = Enums.SchemeTypes.HPCSA,
-                        DesignatedProvider = false
+                        DesignatedProvider = false,
+                        DesignatedProviderOmitted = true,
                     },
                     Diagnoses = new List<DoctorDiagnosis>
                     {
@@ -176,6 +179,7 @@ namespace MedCore.Tests.Claims
                 },
                 new Treatment
                 {
+                    IncludeTimeOnDates = true,
                     Number = "2",
                     StartDate = DateTime.Parse("2017-10-05 00:00"),
                     EndDate = DateTime.Parse("2017-10-05 00:00"),
@@ -208,7 +212,8 @@ namespace MedCore.Tests.Claims
                         DoctorType = Enums.DoctorType.AttendingTreatingPrescribing,
                         CMSRegistrationNumber = "DP1234567",
                         CMSType = Enums.SchemeTypes.HPCSA,
-                        DesignatedProvider = false
+                        DesignatedProvider = false,
+                        DesignatedProviderOmitted = true,
                     },
                     Diagnoses = new List<DoctorDiagnosis>
                     {
@@ -244,6 +249,7 @@ namespace MedCore.Tests.Claims
                 },
                 new Treatment
                 {
+                    IncludeTimeOnDates = true,
                     Number = "3",
                     StartDate = DateTime.Parse("2017-10-05 00:00"),
                     EndDate = DateTime.Parse("2017-10-05 00:00"),
@@ -276,7 +282,8 @@ namespace MedCore.Tests.Claims
                         DoctorType = Enums.DoctorType.AttendingTreatingPrescribing,
                         CMSRegistrationNumber = "DP1234567",
                         CMSType = Enums.SchemeTypes.HPCSA,
-                        DesignatedProvider = false
+                        DesignatedProvider = false,
+                        DesignatedProviderOmitted = true,
                     },
                     Diagnoses = new List<DoctorDiagnosis>
                     {
@@ -312,6 +319,7 @@ namespace MedCore.Tests.Claims
                 },
                 new Treatment
                 {
+                    IncludeTimeOnDates = true,
                     Number = "4",
                     StartDate = DateTime.Parse("2017-10-05 00:00"),
                     EndDate = DateTime.Parse("2017-10-05 00:00"),
@@ -344,7 +352,8 @@ namespace MedCore.Tests.Claims
                         DoctorType = Enums.DoctorType.AttendingTreatingPrescribing,
                         CMSRegistrationNumber = "DP1234567",
                         CMSType = Enums.SchemeTypes.HPCSA,
-                        DesignatedProvider = false
+                        DesignatedProvider = false,
+                        DesignatedProviderOmitted = true,
                     },
                     Diagnoses = new List<DoctorDiagnosis>
                     {
@@ -380,6 +389,7 @@ namespace MedCore.Tests.Claims
                 },
                 new Treatment
                 {
+                    IncludeTimeOnDates = true,
                     Number = "5",
                     StartDate = DateTime.Parse("2017-10-05 00:00"),
                     EndDate = DateTime.Parse("2017-10-05 00:00"),
@@ -412,7 +422,8 @@ namespace MedCore.Tests.Claims
                         DoctorType = Enums.DoctorType.AttendingTreatingPrescribing,
                         CMSRegistrationNumber = "DP1234567",
                         CMSType = Enums.SchemeTypes.HPCSA,
-                        DesignatedProvider = false
+                        DesignatedProvider = false,
+                        DesignatedProviderOmitted = true,
                     },
                     Diagnoses = new List<DoctorDiagnosis>
                     {
@@ -427,10 +438,10 @@ namespace MedCore.Tests.Claims
                     },
                     Teeth = new List<Tooth>
                     {
-                        new Tooth { Number = 16 },
-                        new Tooth { Number = 26 },
-                        new Tooth { Number = 37 },
-                        new Tooth { Number = 45 }
+                        new Tooth { Number = 16, Surface = Enums.ToothSurface.NotApplicable },
+                        new Tooth { Number = 26, Surface = Enums.ToothSurface.NotApplicable },
+                        new Tooth { Number = 37, Surface = Enums.ToothSurface.NotApplicable },
+                        new Tooth { Number = 45, Surface = Enums.ToothSurface.NotApplicable }
                     },
                     FinancialRecord = new TreatmentFinancialRecord
                     {
@@ -455,6 +466,7 @@ namespace MedCore.Tests.Claims
                 },
                 new Treatment
                 {
+                    IncludeTimeOnDates = true,
                     Number = "6",
                     StartDate = DateTime.Parse("2017-10-05 00:00"),
                     EndDate = DateTime.Parse("2017-10-05 00:00"),
@@ -487,7 +499,8 @@ namespace MedCore.Tests.Claims
                         DoctorType = Enums.DoctorType.AttendingTreatingPrescribing,
                         CMSRegistrationNumber = "DP1234567",
                         CMSType = Enums.SchemeTypes.HPCSA,
-                        DesignatedProvider = false
+                        DesignatedProvider = false,
+                        DesignatedProviderOmitted = true,
                     },
                     Diagnoses = new List<DoctorDiagnosis>
                     {
@@ -523,6 +536,7 @@ namespace MedCore.Tests.Claims
                 },
                 new Treatment
                 {
+                    IncludeTimeOnDates = true,
                     Number = "7",
                     StartDate = DateTime.Parse("2017-10-05 00:00"),
                     EndDate = DateTime.Parse("2017-10-05 00:00"),
@@ -555,7 +569,8 @@ namespace MedCore.Tests.Claims
                         DoctorType = Enums.DoctorType.AttendingTreatingPrescribing,
                         CMSRegistrationNumber = "DP1234567",
                         CMSType = Enums.SchemeTypes.HPCSA,
-                        DesignatedProvider = false
+                        DesignatedProvider = false,
+                        DesignatedProviderOmitted = true,
                     },
                     Diagnoses = new List<DoctorDiagnosis>
                     {
@@ -595,20 +610,22 @@ namespace MedCore.Tests.Claims
             {
                 NetAmount = 150690,
                 GrossAmount = 150690,
+                TotalClaimedAmount = 150690,
                 ClaimDiscountAmount = 0,
                 ClaimDeductibleAmount = 0,
                 MMAPSurchargeAmount = 0,
                 CoPaymentAmount = 0,
                 PatientLiableAmount = 0,
                 MedicalFundLiableAmount = 150690,
-                MemberReimbursementAmount = 0
+                MemberReimbursementAmount = 0,
+                IsReceiptNumberBlank = true
             };
 
             var footer = new Footer
             {
-                TransmissionNumber = "12345678",
+                TransmissionNumber = "1077917",
                 NumberOfClaims = 1,
-                OmitValueOfClaims = true
+                ValueOfClaims = 150690
             };
 
             return new Dentist
@@ -630,7 +647,7 @@ namespace MedCore.Tests.Claims
             sb.AppendLine("H|1077917|118|TEST Live:2014.1.1|");
             sb.AppendLine("S|201710111016|1234567|TEST DR|731||");
             sb.AppendLine("M|1234567891012||L E|BOND|JAMES|12345678910|N|00015|PO BOX 123||LIBODE|5160|0826564106|||POLMED  AQUARIUM AC||||MHPO0001|");
-            sb.AppendLine("P|00|BOND|L E|JAMES|12345678|M||1234567891012||||||||||00015||||1077917|");
+            sb.AppendLine("P|00|BOND|L E|JAMES|20171102|M||1234567891012||||||||||00015||||1077917|");
             sb.AppendLine("T|1|201710050000|201710050000||15|11731223|02|100|06|8101|01|||01|ORAL EXAMINATION|||||||||||11|");
             sb.AppendLine("DR|1234567|TEST TN DR|01|DP1234567|01||||");
             sb.AppendLine("D|01|01|K02.9||01|");

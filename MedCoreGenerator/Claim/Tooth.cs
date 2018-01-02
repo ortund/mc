@@ -12,7 +12,7 @@ namespace MedCore.Claim
 
         public string GetCSV()
         {
-            var tootSurface = GetStringFromEnumValue((int)Surface);
+            var tootSurface = (Surface == ToothSurface.NotApplicable) ? string.Empty : GetStringFromEnumValue((int)Surface);
             return $"{TYPE}|{Number}|{tootSurface}|{SuperNumaryToothIndicator}|";
         }
     }

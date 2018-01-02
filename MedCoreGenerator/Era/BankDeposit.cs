@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text;
 
 namespace MedCore.Era
 {
@@ -14,10 +15,26 @@ namespace MedCore.Era
         public decimal Amount { get; set; }
         public string DepositReference { get; set; }
 
-        public override string ToString()
+        public bool IsDepositReferenceBlank { get; set; }
+
+        public string GetCSV()
         {
-            var paymentDate = PaymentDate.ToString("yyyyMMddHHmm");
-            return $"{TYPE}|{AccountNumber}|{BranchCode}|{BankName}|{paymentDate}|{PaymentMethod}|{Amount}|{DepositReference}|";
+            var sb = new StringBuilder();
+
+            sb.Append($"{TYPE}|");
+            sb.Append($"{AccountNumber}|");
+            sb.Append($"{BranchCode}|");
+            sb.Append($"{BankName}|");
+            sb.Append($"{PaymentDate:yyyyMMdd}|");
+            sb.Append($"{PaymentMethod}|");
+            sb.Append($"{ReferenceNumber}|");
+            sb.Append($"{Amount}|");
+
+            if (!IsDepositReferenceBlank)
+            {
+                sb.Append($"{DepositReference}|");
+            }
+            return sb.ToString();
         }
     }
 }
