@@ -1,4 +1,5 @@
 ﻿using MedCore.Enums;
+using System.ComponentModel.DataAnnotations;
 
 namespace MedCore.Claim
 {
@@ -8,6 +9,7 @@ namespace MedCore.Claim
 
         public int Number { get; set; }
         public ToothSurface Surface { get; set; }
+        [Display(Name = "Super Numary Tooth Indicator")]
         public string SuperNumaryToothIndicator { get; set; }
 
         public string GetCSV()

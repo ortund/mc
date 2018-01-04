@@ -1,5 +1,6 @@
 ﻿using MedCore.Enums;
 using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace MedCore.Claim
 {
@@ -7,6 +8,7 @@ namespace MedCore.Claim
     {
         private const string TYPE = "HA"; // HA
         public DateTime AdmissionDate { get; set; }
+        [Display(Name = "Service Type")]
         public ServiceType ServiceType { get; set; }
 
         public string GetCSV()

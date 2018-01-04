@@ -1,4 +1,5 @@
 ﻿using MedCore.Enums;
+using System.ComponentModel.DataAnnotations;
 
 namespace MedCore.Claim
 {
@@ -6,6 +7,7 @@ namespace MedCore.Claim
     {
         private string TYPE = "PR";
         public string Code { get; set; }
+        [Display(Name = "Code Type")]
         public ProcedureCodeType CodeType { get; set; }
         public string Description { get; set; }
 

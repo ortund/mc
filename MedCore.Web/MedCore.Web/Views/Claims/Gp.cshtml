@@ -1,0 +1,155 @@
+﻿@model MedCore.GpClaim
+@{
+    ViewBag.Title = "GP Claim";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<div class="row">
+    <div class="col-md-8">
+
+        <form class="form-horizontal">
+            @Html.AntiForgeryToken()
+            <h4>Create a new GP Claim</h4>
+            <hr />
+            @Html.ValidationSummary("", new { @class = "text-danger" })
+
+            <!-- HEADER -->
+            <h5>HEADER</h5>
+            <div class="form-group">
+                @Html.LabelFor(m => m.Header.TransmissionNumber, new { @class = "col-md-2 control-label" })
+                <div class="col-md-10">
+                    @Html.TextBoxFor(m => m.Header.TransmissionNumber, new { @class = "form-control" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(m => m.Header.Version, new { @class = "col-md-2 control-label" })
+                <div class="col-md-10">
+                    @Html.TextBoxFor(m => m.Header.Version, new { @class = "form-control " })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(m => m.Header.PackageInfo, new { @class = "col-md-2 control-label" })
+                <div class="col-md-10">
+                    @Html.TextBoxFor(m => m.Header.PackageInfo, new { @class = "form-control " })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(m => m.Header.ERAVersion, new { @class = "col-md-2 control-label" })
+                <div class="col-md-10">
+                    @Html.TextBoxFor(m => m.Header.ERAVersion, new { @class = "form-control " })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(m => m.Header.ERAVersionOmitted, new { @class = "col-md-2 control-label" })
+                <div class="col-md-10">
+                    @Html.CheckBoxFor(m => m.Header.ERAVersionOmitted)
+                </div>
+            </div>
+
+            <!-- SERVICE PROVIDER -->
+            <hr />
+            <h5>SERVICE PROVIDER</h5>
+            <div class="form-group">
+                @Html.LabelFor(m => m.ServiceProvider.DateCreated, new { @class = "col-md-2 control-label" })
+                <div class="col-md-10">
+                    @Html.TextBox("ServiceProvider_DateCreated", String.Format("{0:d}", DateTime.Now.ToShortDateString()), new { @class = "datefield form-control", type = "date" })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.ServiceProvider.PracticePCNSNumber, new { @class = "col-md-2 control-label" })
+                <div class="col-md-10">
+                    @Html.TextBoxFor(m => m.ServiceProvider.PracticePCNSNumber, new { @class = "form-control" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(m => m.ServiceProvider.BillingPracticeName, new { @class = "col-md-2 control-label" })
+                <div class="col-md-10">
+                    @Html.TextBoxFor(m => m.ServiceProvider.BillingPracticeName, new { @class = "form-control" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(m => m.ServiceProvider.DatasetIdentifier, new { @class = "col-md-2 control-label" })
+                <div class="col-md-10">
+                    @Html.TextBoxFor(m => m.ServiceProvider.DatasetIdentifier, new { @class = "form-control" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(m => m.ServiceProvider.VATNumber, new { @class = "col-md-2 control-label" })
+                <div class="col-md-10">
+                    @Html.TextBoxFor(m => m.ServiceProvider.VATNumber, new { @class = "form-control" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(m => m.ServiceProvider.IsVatNumberBlank, new { @class = "col-md-2 control-label" })
+                <div class="col-md-10">
+                    @Html.CheckBoxFor(m => m.ServiceProvider.IsVatNumberBlank, new { @class = "ServiceProvider_VATNumber" })
+                </div>
+            </div>
+
+            <!-- MEMBER -->
+            <h5>MEMBER</h5>
+            <div class="form-group">
+                @Html.LabelFor(m => m.Member.IdNumber, new { @class = "col-md-2 control-label" })
+                <div class="col-md-10">
+                    @Html.TextBoxFor(m => m.Member.IdNumber, new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.Member.Title, new { @class = "col-md-2 control-label" })
+                <div class="col-md-10">
+                    @Html.TextBoxFor(m => m.Member.IdNumber, new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.Member.Surname, new { @class = "col-md-2 control-label" })
+                <div class="col-md-10">
+                    @Html.TextBoxFor(m => m.Member.Surname, new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.Member.Initials, new { @class = "col-md-2 control-lable" })
+                <div class="col-md-10">
+                    @Html.TextBoxFor(m => m.Member.Initials, new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.Member.FullNames, new { @class = "col-md-2 control-lable" })
+                <div class="col-md-10">
+                    @Html.TextBoxFor(m => m.Member.FullNames, new { @class = "form-control" })
+                </div>
+            </div>
+        </form>
+
+    </div>
+
+    <div class="col-md-4">
+        <div class="output" style="font-family: Courier New;">
+            <h3>Here's what the claim looks like:</h3>
+            <div class="claim-header">
+                <span class="Header_TransmissionNumber"></span>
+                <span class="Header_Version"></span>
+                <span class="Header_PackageInfo"></span>
+                <span class="Header_ERAVersion"></span>
+            </div>
+            <div class="claim-sp">
+                <span class="ServiceProvider_DateCreated"></span>
+                <span class="ServiceProvider_PracticePCNSNumber"></span>
+                <span class="ServiceProvider_BillingPracticeName"></span>
+                <span class="ServiceProvider_DatasetIdentifier"></span>
+                <span class="ServiceProvider_VATNumber"></span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="~/Scripts/Claim.js"></script>

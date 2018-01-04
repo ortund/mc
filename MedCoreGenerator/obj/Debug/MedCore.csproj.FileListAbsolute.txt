@@ -32,3 +32,10 @@ C:\Users\logan\Documents\GitHub\mc\MedCoreGenerator\bin\Debug\AutoMapper.xml
 C:\Users\logan\Documents\GitHub\mc\MedCoreGenerator\bin\Debug\Newtonsoft.Json.xml
 C:\Users\logan\Documents\GitHub\mc\MedCoreGenerator\obj\Debug\MedCoreGenerator.dll
 C:\Users\logan\Documents\GitHub\mc\MedCoreGenerator\obj\Debug\MedCoreGenerator.pdb
+C:\Users\logan\documents\visual studio 2017\Projects\MedCoreGenerator\MedCoreGenerator\bin\Debug\MedCoreGenerator.dll
+C:\Users\logan\documents\visual studio 2017\Projects\MedCoreGenerator\MedCoreGenerator\bin\Debug\MedCoreGenerator.pdb
+C:\Users\logan\documents\visual studio 2017\Projects\MedCoreGenerator\MedCoreGenerator\bin\Debug\AutoMapper.dll
+C:\Users\logan\documents\visual studio 2017\Projects\MedCoreGenerator\MedCoreGenerator\bin\Debug\AutoMapper.xml
+C:\Users\logan\documents\visual studio 2017\Projects\MedCoreGenerator\MedCoreGenerator\obj\Debug\MedCore.csprojResolveAssemblyReference.cache
+C:\Users\logan\documents\visual studio 2017\Projects\MedCoreGenerator\MedCoreGenerator\obj\Debug\MedCoreGenerator.dll
+C:\Users\logan\documents\visual studio 2017\Projects\MedCoreGenerator\MedCoreGenerator\obj\Debug\MedCoreGenerator.pdb

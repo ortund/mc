@@ -1,6 +1,7 @@
 ﻿using MedCore.Enums;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace MedCore.Claim
 {
@@ -14,32 +15,65 @@ namespace MedCore.Claim
         private const string _type = "T";
 
         public string Number { get; set; }
+        [Display(Name = "Start Date")]
         public DateTime StartDate { get; set; }
+        [Display(Name = "End Date")]
         public DateTime? EndDate { get; set; }
+        [Display(Name = "Authorization Number")]
         public string AuthorizationNumber { get; set; }
+        [Display(Name = "Invoice Number")]
         public string InvoiceNumber { get; set; }
+        [Display(Name = "Claim Line Number")]
         public string ClaimLineNumber { get; set; }
         public TreatmentType Type { get; set; }
+        [Display(Name = "Unit Quantity")]
         public int UnitQuantity { get; set; }
+        [Display(Name = "Unit Type")]
         public UnitType UnitType { get; set; }
+        [Display(Name = "Procedure Modifier Code")]
         public string ProcedureModifierCode { get; set; }
+        [Display(Name = "Tariff Code")]
         public TariffCodeType TariffCode { get; set; }
+        [Display(Name = "Modifier Type")]
         public TreatmentModifierType ModifierType { get; set; }
+        [Display(Name = "NAPPI Code")]
         public string NAPPICode { get; set; }
+        [Display(Name = "Service Tariff")]
         public ServiceTariff ServiceTariff { get; set; }
         public string Description { get; set; }
+        [Display(Name = "PMB Condition")]
         public bool PMBCondition { get; set; }
+        [Display(Name = "Script Written Date")]
         public DateTime ScriptWrittenDate { get; set; }
+        [Display(Name = "Benefit Type")]
         public BenefitType BenefitType { get; set; }
+        [Display(Name = "Hospital Tariff")]
         public HospitalTariffType HospitalTariff { get; set; }
+        [Display(Name = "Lab PCNS")]
         public string LabPCNS { get; set; }
+        [Display(Name = "Lab Reference Number")]
         public string LabReferenceNumber { get; set; }
+        [Display(Name = "Lab Name")]
         public string LabName { get; set; }
+        [Display(Name = "Resubmission Reason")]
         public ResubmissionReason ResubmissionReason { get; set; }
+        [Display(Name = "Claim NUmber")]
         public string ClaimNumber { get; set; }
+        [Display(Name = "Claim Date")]
         public DateTime? ClaimDate { get; set; }
+        [Display(Name = "PHISC Place of Service")]
         public string PHISCPlaceOfService { get; set; }
+
+        /// <summary>
+        /// If true, the PMB Condition value will be output as an empty string.
+        /// </summary>
+        [Display(Name = "Is PMB Condition Empty")]
         public bool IsPmbConditionEmpty { get; set; }
+
+        /// <summary>
+        /// If true, start and end date values will have the time of day included on them.
+        /// </summary>
+        [Display(Name = "Include Time On Dates")]
         public bool IncludeTimeOnDates { get; set; }
         
         public string GetCSV()

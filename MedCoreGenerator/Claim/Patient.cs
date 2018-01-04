@@ -1,5 +1,6 @@
 ﻿using MedCore.Enums;
 using System;
+using System.ComponentModel.DataAnnotations;
 using System.Text;
 
 namespace MedCore.Claim
@@ -7,28 +8,50 @@ namespace MedCore.Claim
     public class Patient : EnumParser, ICreatesCSV
     {
         private const string TYPE = "P";
+        [Display(Name = "Dependant Code")]
         public string DependantCode { get; set; }
         public string Surname { get; set; }
         public string Initials { get; set; }
+        [Display(Name = "Full Names")]
         public string FullName { get; set; }
+        [Display(Name = "Date of Birth")]
         public DateTime DOB { get; set; }
         public Gender Gender { get; set; }
+        [Display(Name = "Patient Relation Code")]
         public PatientRelationCode PatientRelationCode { get; set; }
+        [Display(Name = "ID Number")]
         public long? IdNumber { get; set; }
+        [Display(Name = "Recall Date")]
         public DateTime? RecallDate { get; set; }
         public string COID { get; set; }
+        [Display(Name = "Injury Date")]
         public DateTime? InjuryDate { get; set; }
+        [Display(Name = "Employer Name")]
         public string EmployerName { get; set; }
+        [Display(Name = "Employer Registration Number")]
         public string EmployerRegistrationNumber { get; set; }
+        [Display(Name = "Employee Number")]
         public string EmployeeNumber { get; set; }
+        [Display(Name = "Insurance Number")]
         public string InsuranceNumber { get; set; }
+        [Display(Name = "Authorization Number")]
         public string AuthorizationNumber { get; set; }
+        [Display(Name = "Confirmation Number")]
         public string ConfirmationNumber { get; set; }
+        [Display(Name = "PMA Number")]
         public string PMANumber { get; set; }
+        [Display(Name = "Patient Type")]
         public PatientType PatientType { get; set; }
         public decimal? Height { get; set; }
         public decimal? Weight { get; set; }
+        [Display(Name = "PMA Claim Reference Number")]
         public string PMAClaimReferenceNumber { get; set; }
+
+        /// <summary>
+        /// If true, height and weight values will be left padded with a 0.
+        /// </summary>
+        /// 
+        [Display(Name = "Pad Decimals")]
         public bool PadDecimals { get; set; }
 
         private string _recallDate;
